@@ -1,0 +1,7 @@
+@import '../constants.css';
+
+@define-mixin is-scroll-disabled {
+  html:global(.$(SCROLL_DISABLED)) & {
+    @mixin-content;
+  }
+}

@@ -1,0 +1,11 @@
+@define-mixin has-clamp-support {
+  @supports (width: clamp(0px, 0px, 0px)) {
+    @mixin-content;
+  }
+}
+
+@define-mixin no-clamp-support {
+  @supports not (width: clamp(0px, 0px, 0px)) {
+    @mixin-content;
+  }
+}

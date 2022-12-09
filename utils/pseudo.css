@@ -1,0 +1,126 @@
+@import './features/touch.css';
+
+@define-mixin has-hover-support {
+  @media all and (hover: hover) {
+    @mixin-content;
+  }
+}
+
+@define-mixin no-hover-support {
+  @media not all and (hover: hover) {
+    @mixin-content;
+  }
+}
+
+@define-mixin is-hovered {
+  @mixin has-hover-support {
+    &:hover {
+      @mixin-content;
+    }
+  }
+}
+
+@define-mixin is-not-hovered {
+  @mixin has-hover-support {
+    &:not(:hover) {
+      @mixin-content;
+    }
+  }
+}
+
+@define-mixin is-focused {
+  &:focus-visible {
+    @mixin-content;
+  }
+}
+
+@define-mixin is-focus-persisted {
+  &:focus {
+    @mixin-content;
+  }
+}
+
+@define-mixin is-not-focused {
+  &:not(:focus):not(:focus-visible) {
+    @mixin-content;
+  }
+}
+
+@define-mixin is-focused-within {
+  &:focus-within {
+    @mixin-content;
+  }
+}
+
+@define-mixin is-touched {
+  @mixin has-touch-support {
+    @mixin is-active-target {
+      @mixin-content;
+    }
+  }
+}
+
+@define-mixin is-not-touched {
+  @mixin has-touch-support {
+    @mixin is-not-active-target {
+      @mixin-content;
+    }
+  }
+}
+
+@define-mixin is-active {
+  &:active {
+    @mixin-content;
+  }
+}
+
+@define-mixin is-targeted {
+  &:target {
+    @mixin-content;
+  }
+}
+
+@define-mixin is-checked {
+  &:checked {
+    @mixin-content;
+  }
+}
+
+@define-mixin is-focused-or-checked {
+  &:focus-visible,
+  &:checked {
+    @mixin-content;
+  }
+}
+
+@define-mixin is-hovered-or-focused {
+  @mixin has-hover-support {
+    &:hover,
+    &:focus-visible {
+      @mixin-content;
+    }
+  }
+}
+
+@define-mixin is-hovered-or-focus-persisted {
+  @mixin has-hover-support {
+    &:hover,
+    &:focus {
+      @mixin-content;
+    }
+  }
+}
+
+@define-mixin is-active-or-targeted {
+  &:active,
+  &:target {
+    @mixin-content;
+  }
+}
+
+@define-mixin is-not-active-or-targeted {
+  &:not(:active),
+  &:not(:target) {
+    @mixin-content;
+  }
+}

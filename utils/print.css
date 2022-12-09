@@ -1,0 +1,5 @@
+@define-mixin hide-on-print $IS_IMPORTANT {
+  @media print {
+    display: setImportance(none, $IS_IMPORTANT);
+  }
+}

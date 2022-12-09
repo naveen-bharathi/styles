@@ -1,0 +1,15 @@
+@define-mixin transition-duration $DURATION: normal, $IS_IMPORTANT {
+  transition-duration: conditionalValue(
+    isEqual($DURATION, quick),
+    setImportance(180ms, $IS_IMPORTANT),
+    conditionalValue(
+      isEqual($DURATION, normal),
+      setImportance(300ms, $IS_IMPORTANT),
+      conditionalValue(
+        isEqual($DURATION, slow),
+        setImportance(420ms, $IS_IMPORTANT),
+        $DURATION
+      )
+    )
+  );
+}

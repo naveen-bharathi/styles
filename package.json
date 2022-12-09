@@ -1,0 +1,31 @@
+{
+  "name": "@naveen-bharathi/styles",
+  "version": "1.0.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/naveen-bharathi/styles.git"
+  },
+  "author": "Naveen Bharathi",
+  "license": "MIT",
+  "scripts": {
+    "generate:constants-from-postcss": "node scripts/generators/constants-from-postcss.mjs",
+    "generate:styles-from-config": "node scripts/generators/styles-from-config.mjs"
+  },
+  "files": [
+    "config",
+    "constants",
+    "design-tokens",
+    "postcss",
+    "utils",
+    "constants.css",
+    "default-styles.css",
+    "dependencies.css",
+    "scripts/utils",
+    "styles-reset.css"
+  ],
+  "devDependencies": {
+    "eslint": "^8.29.0",
+    "postcss": "^8.4.19",
+    "prettier": "^2.8.1"
+  }
+}

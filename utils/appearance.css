@@ -1,0 +1,21 @@
+@import '../constants.css';
+
+@define-mixin appearance-light {
+  @media (prefers-color-scheme: light), (prefers-color-scheme: no-preference) {
+    @mixin-content;
+  }
+
+  @at-root html:global(.$(APPEARANCE_LIGHT)) & {
+    @mixin-content;
+  }
+}
+
+@define-mixin appearance-dark {
+  @media (prefers-color-scheme: dark) {
+    @mixin-content;
+  }
+
+  @at-root html:global(.$(APPEARANCE_DARK)) & {
+    @mixin-content;
+  }
+}

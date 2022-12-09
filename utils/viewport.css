@@ -1,0 +1,125 @@
+@define-mixin watch {
+  @media only screen and (max-width: 319px) {
+    @mixin-content;
+  }
+}
+
+@define-mixin phone {
+  @media only screen and (min-width: 320px) and (max-width: 567px) {
+    @mixin-content;
+  }
+}
+
+@define-mixin largephone {
+  @media only screen and (min-width: 568px) and (max-width: 767px) {
+    @mixin-content;
+  }
+}
+
+@define-mixin tablet {
+  @media only screen and (min-width: 768px) and (max-width: 979px) {
+    @mixin-content;
+  }
+}
+
+@define-mixin laptop {
+  @media only screen and (min-width: 980px) and (max-width: 1366px) {
+    @mixin-content;
+  }
+}
+
+@define-mixin desktop {
+  @media only screen and (min-width: 1367px) {
+    @mixin-content;
+  }
+}
+
+@define-mixin _phone {
+  @media only screen and (max-width: 567px) {
+    @mixin-content;
+  }
+}
+
+@define-mixin _largephone {
+  @media only screen and (max-width: 767px) {
+    @mixin-content;
+  }
+}
+
+@define-mixin _tablet {
+  @media only screen and (max-width: 979px) {
+    @mixin-content;
+  }
+}
+
+@define-mixin _laptop {
+  @media only screen and (max-width: 1366px) {
+    @mixin-content;
+  }
+}
+
+@define-mixin phone_largephone {
+  @media only screen and (min-width: 320px) and (max-width: 767px) {
+    @mixin-content;
+  }
+}
+
+@define-mixin phone_tablet {
+  @media only screen and (min-width: 320px) and (max-width: 979px) {
+    @mixin-content;
+  }
+}
+
+@define-mixin phone_laptop {
+  @media only screen and (min-width: 320px) and (max-width: 1366px) {
+    @mixin-content;
+  }
+}
+
+@define-mixin phone_ {
+  @media only screen and (min-width: 320px) {
+    @mixin-content;
+  }
+}
+
+@define-mixin largephone_tablet {
+  @media only screen and (min-width: 568px) and (max-width: 979px) {
+    @mixin-content;
+  }
+}
+
+@define-mixin largephone_laptop {
+  @media only screen and (min-width: 568px) and (max-width: 1366px) {
+    @mixin-content;
+  }
+}
+
+@define-mixin largephone_ {
+  @media only screen and (min-width: 568px) {
+    @mixin-content;
+  }
+}
+
+@define-mixin tablet_laptop {
+  @media only screen and (min-width: 768px) and (max-width: 1366px) {
+    @mixin-content;
+  }
+}
+
+@define-mixin tablet_ {
+  @media only screen and (min-width: 768px) {
+    @mixin-content;
+  }
+}
+
+@define-mixin laptop_ {
+  @media only screen and (min-width: 980px) {
+    @mixin-content;
+  }
+}
+
+@define-mixin desktop_ {
+  @media only screen and (min-width: 1367px) {
+    @mixin-content;
+  }
+}

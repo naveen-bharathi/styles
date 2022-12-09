@@ -1,0 +1,11 @@
+@define-mixin has-touch-support {
+  @media (pointer: coarse) {
+    @mixin-content;
+  }
+}
+
+@define-mixin no-touch-support {
+  @media (pointer: fine) {
+    @mixin-content;
+  }
+}

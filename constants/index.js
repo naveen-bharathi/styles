@@ -1,0 +1,7 @@
+export const DIRECTION_LTR = 'ltr'
+export const DIRECTION_RTL = 'rtl'
+export const APPEARANCE_DARK = 'dark'
+export const APPEARANCE_LIGHT = 'light'
+export const JS = 'js'
+export const NO_JS = 'no-js'
+export const SCROLL_DISABLED = 'scroll-disabled'

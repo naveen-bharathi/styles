@@ -1,0 +1,4 @@
+@define-mixin size $SIZE, $IS_IMPORTANT {
+  height: setImportance($SIZE, $IS_IMPORTANT);
+  width: setImportance($SIZE, $IS_IMPORTANT);
+}

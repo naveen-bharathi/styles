@@ -1,0 +1,10 @@
+@define-mixin line-clamp $LINE: 2, $IS_IMPORTANT {
+  overflow: setImportance(hidden, $IS_IMPORTANT);
+  display: setImportance(-webkit-box, $IS_IMPORTANT);
+  -webkit-box-orient: setImportance(vertical, $IS_IMPORTANT);
+  -webkit-line-clamp: setImportance($LINE, $IS_IMPORTANT);
+}
+
+@define-mixin line-clamp-none $IS_IMPORTANT {
+  -webkit-line-clamp: setImportance(unset, $IS_IMPORTANT);
+}

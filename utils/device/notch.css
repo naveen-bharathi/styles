@@ -1,0 +1,11 @@
+@define-mixin has-notch {
+  @supports (padding: max(0px)) {
+    @mixin-content;
+  }
+}
+
+@define-mixin no-notch {
+  @supports not (padding: max(0px)) {
+    @mixin-content;
+  }
+}

@@ -1,0 +1,200 @@
+{
+  "defaultPaddingGap": {
+    "WATCH": 12,
+    "PHONE": 20,
+    "LARGEPHONE": 20,
+    "TABLET": 24,
+    "LAPTOP": 28,
+    "DESKTOP": 32
+  },
+  "sizes": {
+    "WATCH": [
+      null,
+      319
+    ],
+    "PHONE": [
+      320,
+      567
+    ],
+    "LARGEPHONE": [
+      568,
+      767
+    ],
+    "TABLET": [
+      768,
+      979
+    ],
+    "LAPTOP": [
+      980,
+      1366
+    ],
+    "DESKTOP": [
+      1367
+    ]
+  },
+  "imgDeviceSizes": {
+    "small": [
+      null,
+      479
+    ],
+    "medium": [
+      480,
+      895
+    ],
+    "large": [
+      896
+    ]
+  },
+  "imgImageSizes": {
+    "small": [
+      479,
+      958
+    ],
+    "medium": [
+      895,
+      1790
+    ],
+    "large": [
+      1280,
+      1920
+    ]
+  },
+  "heroImgDeviceSizes": {
+    "small": [
+      null,
+      734
+    ],
+    "medium": [
+      735,
+      1067
+    ],
+    "large": [
+      1068
+    ]
+  },
+  "heroImgImageSizes": {
+    "small": [
+      734,
+      1468
+    ],
+    "medium": [
+      1068,
+      2136
+    ],
+    "large": [
+      1920,
+      2880
+    ]
+  },
+  "sizeOrder": [
+    "WATCH",
+    "PHONE",
+    "LARGEPHONE",
+    "TABLET",
+    "LAPTOP",
+    "DESKTOP"
+  ],
+  "sideInfo": {
+    "top": {
+      "margin": "margin-top",
+      "padding": "padding-top",
+      "side": "top"
+    },
+    "bottom": {
+      "margin": "margin-bottom",
+      "padding": "padding-bottom",
+      "side": "bottom"
+    },
+    "left": {
+      "margin": "margin-inline-start",
+      "padding": "padding-inline-start",
+      "side": "left"
+    },
+    "right": {
+      "margin": "margin-inline-end",
+      "padding": "padding-inline-end",
+      "side": "right"
+    }
+  },
+  "sides": [
+    {
+      "edge": [
+        "top"
+      ],
+      "code": "top"
+    },
+    {
+      "edge": [
+        "right"
+      ],
+      "code": "right"
+    },
+    {
+      "edge": [
+        "bottom"
+      ],
+      "code": "bottom"
+    },
+    {
+      "edge": [
+        "left"
+      ],
+      "code": "left"
+    },
+    {
+      "edge": [
+        "top",
+        "bottom"
+      ],
+      "code": "y"
+    },
+    {
+      "edge": [
+        "left",
+        "right"
+      ],
+      "code": "x"
+    },
+    {
+      "edge": [
+        "top",
+        "left"
+      ],
+      "code": "topleft"
+    },
+    {
+      "edge": [
+        "top",
+        "right"
+      ],
+      "code": "topright"
+    },
+    {
+      "edge": [
+        "bottom",
+        "left"
+      ],
+      "code": "bottomleft"
+    },
+    {
+      "edge": [
+        "bottom",
+        "right"
+      ],
+      "code": "bottomright"
+    },
+    {
+      "edge": [
+        "top",
+        "bottom",
+        "left",
+        "right"
+      ],
+      "code": ""
+    }
+  ],
+  "siteWidthSmall": 728,
+  "siteWidthCompact": 1024,
+  "siteWidthExtended": 1920,
+  "siteWidthNormal": 1440
+}
