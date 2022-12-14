@@ -1,6 +1,7 @@
 @import './pseudo.css';
 
 @define-mixin outline $OFFSET: normal, $IS_IMPORTANT {
+  outline-color: var(--OUTLINE-COLOR);
   outline-offset: setImportance(
     conditionalValue(
       isEqual($OFFSET, normal),
@@ -22,7 +23,7 @@
     $IS_IMPORTANT
   );
   outline-style: setImportance(solid, $IS_IMPORTANT);
-  outline-color: var(--OUTLINE-COLOR);
+  outline-width: unit(1);
 }
 
 @define-mixin outline-on-focus $OFFSET: normal, $IS_IMPORTANT {
