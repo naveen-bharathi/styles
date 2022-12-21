@@ -1,5 +1,5 @@
 {
-  "defaultPaddingGap": {
+  "defaultPadding": {
     "WATCH": 12,
     "PHONE": 20,
     "LARGEPHONE": 20,
@@ -192,9 +192,5 @@
       ],
       "code": ""
     }
-  ],
-  "siteWidthSmall": 728,
-  "siteWidthCompact": 1024,
-  "siteWidthExtended": 1920,
-  "siteWidthNormal": 1440
+  ]
 }

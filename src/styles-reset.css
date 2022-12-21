@@ -50,6 +50,7 @@ a {
   color: inherit;
   cursor: pointer;
   text-decoration: inherit;
+  @mixin outline-on-focus;
 }
 
 b,
