@@ -1,0 +1,17 @@
+$SPACING_WIDE: 0.025em;
+
+@define-mixin letter-spacing $LETTER_SPACING: normal, $IS_IMPORTANT {
+  letter-spacing: conditionalValue(
+    isEqual($LETTER_SPACING, -wide),
+    setImportance(-$SPACING_WIDE, $IS_IMPORTANT),
+    conditionalValue(
+      isEqual($LETTER_SPACING, normal),
+      setImportance(0em, $IS_IMPORTANT),
+      conditionalValue(
+        isEqual($LETTER_SPACING, wide),
+        setImportance($SPACING_WIDE, $IS_IMPORTANT),
+        $LETTER_SPACING
+      )
+    )
+  );
+}

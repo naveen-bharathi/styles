@@ -1,0 +1,35 @@
+@define-mixin border-radius $RADIUS: normal, $IS_IMPORTANT {
+  border-radius: conditionalValue(
+    isEqual($RADIUS, extrasmall),
+    setImportance(unit(0.5), $IS_IMPORTANT),
+    conditionalValue(
+      isEqual($RADIUS, small),
+      setImportance(unit(0.75), $IS_IMPORTANT),
+      conditionalValue(
+        isEqual($RADIUS, normal),
+        setImportance(unit(1), $IS_IMPORTANT),
+        conditionalValue(
+          isEqual($RADIUS, medium),
+          setImportance(unit(1.5), $IS_IMPORTANT),
+          conditionalValue(
+            isEqual($RADIUS, large),
+            setImportance(unit(2), $IS_IMPORTANT),
+            conditionalValue(
+              isEqual($RADIUS, xlarge),
+              setImportance(unit(3), $IS_IMPORTANT),
+              conditionalValue(
+                isEqual($RADIUS, 2xlarge),
+                setImportance(unit(4), $IS_IMPORTANT),
+                conditionalValue(
+                  isEqual($RADIUS, full),
+                  setImportance(50%, $IS_IMPORTANT),
+                  $RADIUS
+                )
+              )
+            )
+          )
+        )
+      )
+    )
+  );
+}

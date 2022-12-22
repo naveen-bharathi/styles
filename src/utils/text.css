@@ -1,0 +1,6 @@
+@define-mixin text-overflow-ellipsis {
+  display: inline-block !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  white-space: nowrap !important;
+}

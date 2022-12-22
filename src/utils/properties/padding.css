@@ -1,0 +1,2249 @@
+@import '../../design-tokens/padding.css';
+@import '../viewport.css';
+
+@define-mixin padding-x $VALUE, $IS_IMPORTANT {
+  @mixin padding-start $VALUE, $IS_IMPORTANT;
+  @mixin padding-end $VALUE, $IS_IMPORTANT;
+}
+
+@define-mixin padding-y $VALUE, $IS_IMPORTANT {
+  padding-bottom: setImportance($VALUE, $IS_IMPORTANT);
+  padding-top: setImportance($VALUE, $IS_IMPORTANT);
+}
+
+@define-mixin padding-start $VALUE, $IS_IMPORTANT {
+  padding-inline-start: setImportance($VALUE, $IS_IMPORTANT);
+}
+
+@define-mixin padding-end $VALUE, $IS_IMPORTANT {
+  padding-inline-end: setImportance($VALUE, $IS_IMPORTANT);
+}
+
+@define-mixin notch-padding-top $PADDING, $IS_IMPORTANT {
+  @mixin has-notch {
+    padding-top: setImportance(
+      max($PADDING, env(safe-area-inset-top)),
+      $IS_IMPORTANT
+    );
+  }
+
+  @mixin no-notch {
+    padding-top: setImportance($PADDING, $IS_IMPORTANT);
+  }
+}
+
+@define-mixin notch-padding-right $PADDING, $IS_IMPORTANT {
+  @mixin has-notch {
+    padding-inline-end: setImportance(
+      max($PADDING, env(safe-area-inset-right)),
+      $IS_IMPORTANT
+    );
+  }
+
+  @mixin no-notch {
+    padding-inline-end: setImportance($PADDING, $IS_IMPORTANT);
+  }
+}
+
+@define-mixin notch-padding-bottom $PADDING, $IS_IMPORTANT {
+  @mixin has-notch {
+    padding-bottom: setImportance(
+      max($PADDING, env(safe-area-inset-bottom)),
+      $IS_IMPORTANT
+    );
+  }
+
+  @mixin no-notch {
+    padding-bottom: setImportance($PADDING, $IS_IMPORTANT);
+  }
+}
+
+@define-mixin notch-padding-left $PADDING, $IS_IMPORTANT {
+  @mixin has-notch {
+    padding-inline-start: setImportance(
+      max($PADDING, env(safe-area-inset-left)),
+      $IS_IMPORTANT
+    );
+  }
+
+  @mixin no-notch {
+    padding-inline-start: setImportance($PADDING, $IS_IMPORTANT);
+  }
+}
+
+@define-mixin notch-padding-y $PADDING, $IS_IMPORTANT {
+  @mixin has-notch {
+    padding-top: setImportance(
+      max($PADDING, env(safe-area-inset-top)),
+      $IS_IMPORTANT
+    );
+    padding-bottom: setImportance(
+      max($PADDING, env(safe-area-inset-bottom)),
+      $IS_IMPORTANT
+    );
+  }
+
+  @mixin no-notch {
+    padding-top: setImportance($PADDING, $IS_IMPORTANT);
+    padding-bottom: setImportance($PADDING, $IS_IMPORTANT);
+  }
+}
+
+@define-mixin notch-padding-x $PADDING, $IS_IMPORTANT {
+  @mixin has-notch {
+    padding-inline-start: setImportance(
+      max($PADDING, env(safe-area-inset-left)),
+      $IS_IMPORTANT
+    );
+    padding-inline-end: setImportance(
+      max($PADDING, env(safe-area-inset-right)),
+      $IS_IMPORTANT
+    );
+  }
+
+  @mixin no-notch {
+    padding-inline-start: setImportance($PADDING, $IS_IMPORTANT);
+    padding-inline-end: setImportance($PADDING, $IS_IMPORTANT);
+  }
+}
+
+@define-mixin notch-padding-topleft $PADDING, $IS_IMPORTANT {
+  @mixin has-notch {
+    padding-top: setImportance(
+      max($PADDING, env(safe-area-inset-top)),
+      $IS_IMPORTANT
+    );
+    padding-inline-start: setImportance(
+      max($PADDING, env(safe-area-inset-left)),
+      $IS_IMPORTANT
+    );
+  }
+
+  @mixin no-notch {
+    padding-top: setImportance($PADDING, $IS_IMPORTANT);
+    padding-inline-start: setImportance($PADDING, $IS_IMPORTANT);
+  }
+}
+
+@define-mixin notch-padding-topright $PADDING, $IS_IMPORTANT {
+  @mixin has-notch {
+    padding-top: setImportance(
+      max($PADDING, env(safe-area-inset-top)),
+      $IS_IMPORTANT
+    );
+    padding-inline-end: setImportance(
+      max($PADDING, env(safe-area-inset-right)),
+      $IS_IMPORTANT
+    );
+  }
+
+  @mixin no-notch {
+    padding-top: setImportance($PADDING, $IS_IMPORTANT);
+    padding-inline-end: setImportance($PADDING, $IS_IMPORTANT);
+  }
+}
+
+@define-mixin notch-padding-bottomleft $PADDING, $IS_IMPORTANT {
+  @mixin has-notch {
+    padding-bottom: setImportance(
+      max($PADDING, env(safe-area-inset-bottom)),
+      $IS_IMPORTANT
+    );
+    padding-inline-start: setImportance(
+      max($PADDING, env(safe-area-inset-left)),
+      $IS_IMPORTANT
+    );
+  }
+
+  @mixin no-notch {
+    padding-bottom: setImportance($PADDING, $IS_IMPORTANT);
+    padding-inline-start: setImportance($PADDING, $IS_IMPORTANT);
+  }
+}
+
+@define-mixin notch-padding-bottomright $PADDING, $IS_IMPORTANT {
+  @mixin has-notch {
+    padding-bottom: setImportance(
+      max($PADDING, env(safe-area-inset-bottom)),
+      $IS_IMPORTANT
+    );
+    padding-inline-end: setImportance(
+      max($PADDING, env(safe-area-inset-right)),
+      $IS_IMPORTANT
+    );
+  }
+
+  @mixin no-notch {
+    padding-bottom: setImportance($PADDING, $IS_IMPORTANT);
+    padding-inline-end: setImportance($PADDING, $IS_IMPORTANT);
+  }
+}
+
+@define-mixin notch-padding $PADDING, $IS_IMPORTANT {
+  @mixin has-notch {
+    padding-top: setImportance(
+      max($PADDING, env(safe-area-inset-top)),
+      $IS_IMPORTANT
+    );
+    padding-bottom: setImportance(
+      max($PADDING, env(safe-area-inset-bottom)),
+      $IS_IMPORTANT
+    );
+    padding-inline-start: setImportance(
+      max($PADDING, env(safe-area-inset-left)),
+      $IS_IMPORTANT
+    );
+    padding-inline-end: setImportance(
+      max($PADDING, env(safe-area-inset-right)),
+      $IS_IMPORTANT
+    );
+  }
+
+  @mixin no-notch {
+    padding-top: setImportance($PADDING, $IS_IMPORTANT);
+    padding-bottom: setImportance($PADDING, $IS_IMPORTANT);
+    padding-inline-start: setImportance($PADDING, $IS_IMPORTANT);
+    padding-inline-end: setImportance($PADDING, $IS_IMPORTANT);
+  }
+}
+
+@define-mixin responsive-notch-padding-top $VALUE_WATCH, $VALUE_PHONE,
+  $VALUE_LARGEPHONE, $VALUE_TABLET, $VALUE_LAPTOP, $VALUE_DESKTOP, $IS_IMPORTANT {
+  @mixin watch {
+    @mixin has-notch {
+      padding-top: setImportance(
+        getNotchValue(
+          top,
+          conditionalValue($VALUE_WATCH, $VALUE_WATCH, $PADDING_WATCH)
+        ),
+        $IS_IMPORTANT
+      );
+    }
+
+    @mixin no-notch {
+      padding-top: setImportance(
+        conditionalValue($VALUE_WATCH, $VALUE_WATCH, $PADDING_WATCH),
+        $IS_IMPORTANT
+      );
+    }
+  }
+
+  @mixin phone {
+    @mixin has-notch {
+      padding-top: setImportance(
+        getNotchValue(
+          top,
+          conditionalValue($VALUE_PHONE, $VALUE_PHONE, $PADDING_PHONE)
+        ),
+        $IS_IMPORTANT
+      );
+    }
+
+    @mixin no-notch {
+      padding-top: setImportance(
+        conditionalValue($VALUE_PHONE, $VALUE_PHONE, $PADDING_PHONE),
+        $IS_IMPORTANT
+      );
+    }
+  }
+
+  @mixin largephone {
+    @mixin has-notch {
+      padding-top: setImportance(
+        getNotchValue(
+          top,
+          conditionalValue(
+            $VALUE_LARGEPHONE,
+            $VALUE_LARGEPHONE,
+            $PADDING_LARGEPHONE
+          )
+        ),
+        $IS_IMPORTANT
+      );
+    }
+
+    @mixin no-notch {
+      padding-top: setImportance(
+        conditionalValue(
+          $VALUE_LARGEPHONE,
+          $VALUE_LARGEPHONE,
+          $PADDING_LARGEPHONE
+        ),
+        $IS_IMPORTANT
+      );
+    }
+  }
+
+  @mixin tablet {
+    @mixin has-notch {
+      padding-top: setImportance(
+        getNotchValue(
+          top,
+          conditionalValue($VALUE_TABLET, $VALUE_TABLET, $PADDING_TABLET)
+        ),
+        $IS_IMPORTANT
+      );
+    }
+
+    @mixin no-notch {
+      padding-top: setImportance(
+        conditionalValue($VALUE_TABLET, $VALUE_TABLET, $PADDING_TABLET),
+        $IS_IMPORTANT
+      );
+    }
+  }
+
+  @mixin laptop {
+    @mixin has-notch {
+      padding-top: setImportance(
+        getNotchValue(
+          top,
+          conditionalValue($VALUE_LAPTOP, $VALUE_LAPTOP, $PADDING_LAPTOP)
+        ),
+        $IS_IMPORTANT
+      );
+    }
+
+    @mixin no-notch {
+      padding-top: setImportance(
+        conditionalValue($VALUE_LAPTOP, $VALUE_LAPTOP, $PADDING_LAPTOP),
+        $IS_IMPORTANT
+      );
+    }
+  }
+
+  @mixin desktop {
+    @mixin has-notch {
+      padding-top: setImportance(
+        getNotchValue(
+          top,
+          conditionalValue($VALUE_DESKTOP, $VALUE_DESKTOP, $PADDING_DESKTOP)
+        ),
+        $IS_IMPORTANT
+      );
+    }
+
+    @mixin no-notch {
+      padding-top: setImportance(
+        conditionalValue($VALUE_DESKTOP, $VALUE_DESKTOP, $PADDING_DESKTOP),
+        $IS_IMPORTANT
+      );
+    }
+  }
+}
+
+@define-mixin responsive-notch-padding-right $VALUE_WATCH, $VALUE_PHONE,
+  $VALUE_LARGEPHONE, $VALUE_TABLET, $VALUE_LAPTOP, $VALUE_DESKTOP, $IS_IMPORTANT {
+  @mixin watch {
+    @mixin has-notch {
+      padding-inline-end: setImportance(
+        getNotchValue(
+          right,
+          conditionalValue($VALUE_WATCH, $VALUE_WATCH, $PADDING_WATCH)
+        ),
+        $IS_IMPORTANT
+      );
+    }
+
+    @mixin no-notch {
+      padding-inline-end: setImportance(
+        conditionalValue($VALUE_WATCH, $VALUE_WATCH, $PADDING_WATCH),
+        $IS_IMPORTANT
+      );
+    }
+  }
+
+  @mixin phone {
+    @mixin has-notch {
+      padding-inline-end: setImportance(
+        getNotchValue(
+          right,
+          conditionalValue($VALUE_PHONE, $VALUE_PHONE, $PADDING_PHONE)
+        ),
+        $IS_IMPORTANT
+      );
+    }
+
+    @mixin no-notch {
+      padding-inline-end: setImportance(
+        conditionalValue($VALUE_PHONE, $VALUE_PHONE, $PADDING_PHONE),
+        $IS_IMPORTANT
+      );
+    }
+  }
+
+  @mixin largephone {
+    @mixin has-notch {
+      padding-inline-end: setImportance(
+        getNotchValue(
+          right,
+          conditionalValue(
+            $VALUE_LARGEPHONE,
+            $VALUE_LARGEPHONE,
+            $PADDING_LARGEPHONE
+          )
+        ),
+        $IS_IMPORTANT
+      );
+    }
+
+    @mixin no-notch {
+      padding-inline-end: setImportance(
+        conditionalValue(
+          $VALUE_LARGEPHONE,
+          $VALUE_LARGEPHONE,
+          $PADDING_LARGEPHONE
+        ),
+        $IS_IMPORTANT
+      );
+    }
+  }
+
+  @mixin tablet {
+    @mixin has-notch {
+      padding-inline-end: setImportance(
+        getNotchValue(
+          right,
+          conditionalValue($VALUE_TABLET, $VALUE_TABLET, $PADDING_TABLET)
+        ),
+        $IS_IMPORTANT
+      );
+    }
+
+    @mixin no-notch {
+      padding-inline-end: setImportance(
+        conditionalValue($VALUE_TABLET, $VALUE_TABLET, $PADDING_TABLET),
+        $IS_IMPORTANT
+      );
+    }
+  }
+
+  @mixin laptop {
+    @mixin has-notch {
+      padding-inline-end: setImportance(
+        getNotchValue(
+          right,
+          conditionalValue($VALUE_LAPTOP, $VALUE_LAPTOP, $PADDING_LAPTOP)
+        ),
+        $IS_IMPORTANT
+      );
+    }
+
+    @mixin no-notch {
+      padding-inline-end: setImportance(
+        conditionalValue($VALUE_LAPTOP, $VALUE_LAPTOP, $PADDING_LAPTOP),
+        $IS_IMPORTANT
+      );
+    }
+  }
+
+  @mixin desktop {
+    @mixin has-notch {
+      padding-inline-end: setImportance(
+        getNotchValue(
+          right,
+          conditionalValue($VALUE_DESKTOP, $VALUE_DESKTOP, $PADDING_DESKTOP)
+        ),
+        $IS_IMPORTANT
+      );
+    }
+
+    @mixin no-notch {
+      padding-inline-end: setImportance(
+        conditionalValue($VALUE_DESKTOP, $VALUE_DESKTOP, $PADDING_DESKTOP),
+        $IS_IMPORTANT
+      );
+    }
+  }
+}
+
+@define-mixin responsive-notch-padding-bottom $VALUE_WATCH, $VALUE_PHONE,
+  $VALUE_LARGEPHONE, $VALUE_TABLET, $VALUE_LAPTOP, $VALUE_DESKTOP, $IS_IMPORTANT {
+  @mixin watch {
+    @mixin has-notch {
+      padding-bottom: setImportance(
+        getNotchValue(
+          bottom,
+          conditionalValue($VALUE_WATCH, $VALUE_WATCH, $PADDING_WATCH)
+        ),
+        $IS_IMPORTANT
+      );
+    }
+
+    @mixin no-notch {
+      padding-bottom: setImportance(
+        conditionalValue($VALUE_WATCH, $VALUE_WATCH, $PADDING_WATCH),
+        $IS_IMPORTANT
+      );
+    }
+  }
+
+  @mixin phone {
+    @mixin has-notch {
+      padding-bottom: setImportance(
+        getNotchValue(
+          bottom,
+          conditionalValue($VALUE_PHONE, $VALUE_PHONE, $PADDING_PHONE)
+        ),
+        $IS_IMPORTANT
+      );
+    }
+
+    @mixin no-notch {
+      padding-bottom: setImportance(
+        conditionalValue($VALUE_PHONE, $VALUE_PHONE, $PADDING_PHONE),
+        $IS_IMPORTANT
+      );
+    }
+  }
+
+  @mixin largephone {
+    @mixin has-notch {
+      padding-bottom: setImportance(
+        getNotchValue(
+          bottom,
+          conditionalValue(
+            $VALUE_LARGEPHONE,
+            $VALUE_LARGEPHONE,
+            $PADDING_LARGEPHONE
+          )
+        ),
+        $IS_IMPORTANT
+      );
+    }
+
+    @mixin no-notch {
+      padding-bottom: setImportance(
+        conditionalValue(
+          $VALUE_LARGEPHONE,
+          $VALUE_LARGEPHONE,
+          $PADDING_LARGEPHONE
+        ),
+        $IS_IMPORTANT
+      );
+    }
+  }
+
+  @mixin tablet {
+    @mixin has-notch {
+      padding-bottom: setImportance(
+        getNotchValue(
+          bottom,
+          conditionalValue($VALUE_TABLET, $VALUE_TABLET, $PADDING_TABLET)
+        ),
+        $IS_IMPORTANT
+      );
+    }
+
+    @mixin no-notch {
+      padding-bottom: setImportance(
+        conditionalValue($VALUE_TABLET, $VALUE_TABLET, $PADDING_TABLET),
+        $IS_IMPORTANT
+      );
+    }
+  }
+
+  @mixin laptop {
+    @mixin has-notch {
+      padding-bottom: setImportance(
+        getNotchValue(
+          bottom,
+          conditionalValue($VALUE_LAPTOP, $VALUE_LAPTOP, $PADDING_LAPTOP)
+        ),
+        $IS_IMPORTANT
+      );
+    }
+
+    @mixin no-notch {
+      padding-bottom: setImportance(
+        conditionalValue($VALUE_LAPTOP, $VALUE_LAPTOP, $PADDING_LAPTOP),
+        $IS_IMPORTANT
+      );
+    }
+  }
+
+  @mixin desktop {
+    @mixin has-notch {
+      padding-bottom: setImportance(
+        getNotchValue(
+          bottom,
+          conditionalValue($VALUE_DESKTOP, $VALUE_DESKTOP, $PADDING_DESKTOP)
+        ),
+        $IS_IMPORTANT
+      );
+    }
+
+    @mixin no-notch {
+      padding-bottom: setImportance(
+        conditionalValue($VALUE_DESKTOP, $VALUE_DESKTOP, $PADDING_DESKTOP),
+        $IS_IMPORTANT
+      );
+    }
+  }
+}
+
+@define-mixin responsive-notch-padding-left $VALUE_WATCH, $VALUE_PHONE,
+  $VALUE_LARGEPHONE, $VALUE_TABLET, $VALUE_LAPTOP, $VALUE_DESKTOP, $IS_IMPORTANT {
+  @mixin watch {
+    @mixin has-notch {
+      padding-inline-start: setImportance(
+        getNotchValue(
+          left,
+          conditionalValue($VALUE_WATCH, $VALUE_WATCH, $PADDING_WATCH)
+        ),
+        $IS_IMPORTANT
+      );
+    }
+
+    @mixin no-notch {
+      padding-inline-start: setImportance(
+        conditionalValue($VALUE_WATCH, $VALUE_WATCH, $PADDING_WATCH),
+        $IS_IMPORTANT
+      );
+    }
+  }
+
+  @mixin phone {
+    @mixin has-notch {
+      padding-inline-start: setImportance(
+        getNotchValue(
+          left,
+          conditionalValue($VALUE_PHONE, $VALUE_PHONE, $PADDING_PHONE)
+        ),
+        $IS_IMPORTANT
+      );
+    }
+
+    @mixin no-notch {
+      padding-inline-start: setImportance(
+        conditionalValue($VALUE_PHONE, $VALUE_PHONE, $PADDING_PHONE),
+        $IS_IMPORTANT
+      );
+    }
+  }
+
+  @mixin largephone {
+    @mixin has-notch {
+      padding-inline-start: setImportance(
+        getNotchValue(
+          left,
+          conditionalValue(
+            $VALUE_LARGEPHONE,
+            $VALUE_LARGEPHONE,
+            $PADDING_LARGEPHONE
+          )
+        ),
+        $IS_IMPORTANT
+      );
+    }
+
+    @mixin no-notch {
+      padding-inline-start: setImportance(
+        conditionalValue(
+          $VALUE_LARGEPHONE,
+          $VALUE_LARGEPHONE,
+          $PADDING_LARGEPHONE
+        ),
+        $IS_IMPORTANT
+      );
+    }
+  }
+
+  @mixin tablet {
+    @mixin has-notch {
+      padding-inline-start: setImportance(
+        getNotchValue(
+          left,
+          conditionalValue($VALUE_TABLET, $VALUE_TABLET, $PADDING_TABLET)
+        ),
+        $IS_IMPORTANT
+      );
+    }
+
+    @mixin no-notch {
+      padding-inline-start: setImportance(
+        conditionalValue($VALUE_TABLET, $VALUE_TABLET, $PADDING_TABLET),
+        $IS_IMPORTANT
+      );
+    }
+  }
+
+  @mixin laptop {
+    @mixin has-notch {
+      padding-inline-start: setImportance(
+        getNotchValue(
+          left,
+          conditionalValue($VALUE_LAPTOP, $VALUE_LAPTOP, $PADDING_LAPTOP)
+        ),
+        $IS_IMPORTANT
+      );
+    }
+
+    @mixin no-notch {
+      padding-inline-start: setImportance(
+        conditionalValue($VALUE_LAPTOP, $VALUE_LAPTOP, $PADDING_LAPTOP),
+        $IS_IMPORTANT
+      );
+    }
+  }
+
+  @mixin desktop {
+    @mixin has-notch {
+      padding-inline-start: setImportance(
+        getNotchValue(
+          left,
+          conditionalValue($VALUE_DESKTOP, $VALUE_DESKTOP, $PADDING_DESKTOP)
+        ),
+        $IS_IMPORTANT
+      );
+    }
+
+    @mixin no-notch {
+      padding-inline-start: setImportance(
+        conditionalValue($VALUE_DESKTOP, $VALUE_DESKTOP, $PADDING_DESKTOP),
+        $IS_IMPORTANT
+      );
+    }
+  }
+}
+
+@define-mixin responsive-notch-padding-y $VALUE_WATCH, $VALUE_PHONE,
+  $VALUE_LARGEPHONE, $VALUE_TABLET, $VALUE_LAPTOP, $VALUE_DESKTOP, $IS_IMPORTANT {
+  @mixin watch {
+    @mixin has-notch {
+      padding-top: setImportance(
+        getNotchValue(
+          top,
+          conditionalValue($VALUE_WATCH, $VALUE_WATCH, $PADDING_WATCH)
+        ),
+        $IS_IMPORTANT
+      );
+      padding-bottom: setImportance(
+        getNotchValue(
+          bottom,
+          conditionalValue($VALUE_WATCH, $VALUE_WATCH, $PADDING_WATCH)
+        ),
+        $IS_IMPORTANT
+      );
+    }
+
+    @mixin no-notch {
+      padding-top: setImportance(
+        conditionalValue($VALUE_WATCH, $VALUE_WATCH, $PADDING_WATCH),
+        $IS_IMPORTANT
+      );
+      padding-bottom: setImportance(
+        conditionalValue($VALUE_WATCH, $VALUE_WATCH, $PADDING_WATCH),
+        $IS_IMPORTANT
+      );
+    }
+  }
+
+  @mixin phone {
+    @mixin has-notch {
+      padding-top: setImportance(
+        getNotchValue(
+          top,
+          conditionalValue($VALUE_PHONE, $VALUE_PHONE, $PADDING_PHONE)
+        ),
+        $IS_IMPORTANT
+      );
+      padding-bottom: setImportance(
+        getNotchValue(
+          bottom,
+          conditionalValue($VALUE_PHONE, $VALUE_PHONE, $PADDING_PHONE)
+        ),
+        $IS_IMPORTANT
+      );
+    }
+
+    @mixin no-notch {
+      padding-top: setImportance(
+        conditionalValue($VALUE_PHONE, $VALUE_PHONE, $PADDING_PHONE),
+        $IS_IMPORTANT
+      );
+      padding-bottom: setImportance(
+        conditionalValue($VALUE_PHONE, $VALUE_PHONE, $PADDING_PHONE),
+        $IS_IMPORTANT
+      );
+    }
+  }
+
+  @mixin largephone {
+    @mixin has-notch {
+      padding-top: setImportance(
+        getNotchValue(
+          top,
+          conditionalValue(
+            $VALUE_LARGEPHONE,
+            $VALUE_LARGEPHONE,
+            $PADDING_LARGEPHONE
+          )
+        ),
+        $IS_IMPORTANT
+      );
+      padding-bottom: setImportance(
+        getNotchValue(
+          bottom,
+          conditionalValue(
+            $VALUE_LARGEPHONE,
+            $VALUE_LARGEPHONE,
+            $PADDING_LARGEPHONE
+          )
+        ),
+        $IS_IMPORTANT
+      );
+    }
+
+    @mixin no-notch {
+      padding-top: setImportance(
+        conditionalValue(
+          $VALUE_LARGEPHONE,
+          $VALUE_LARGEPHONE,
+          $PADDING_LARGEPHONE
+        ),
+        $IS_IMPORTANT
+      );
+      padding-bottom: setImportance(
+        conditionalValue(
+          $VALUE_LARGEPHONE,
+          $VALUE_LARGEPHONE,
+          $PADDING_LARGEPHONE
+        ),
+        $IS_IMPORTANT
+      );
+    }
+  }
+
+  @mixin tablet {
+    @mixin has-notch {
+      padding-top: setImportance(
+        getNotchValue(
+          top,
+          conditionalValue($VALUE_TABLET, $VALUE_TABLET, $PADDING_TABLET)
+        ),
+        $IS_IMPORTANT
+      );
+      padding-bottom: setImportance(
+        getNotchValue(
+          bottom,
+          conditionalValue($VALUE_TABLET, $VALUE_TABLET, $PADDING_TABLET)
+        ),
+        $IS_IMPORTANT
+      );
+    }
+
+    @mixin no-notch {
+      padding-top: setImportance(
+        conditionalValue($VALUE_TABLET, $VALUE_TABLET, $PADDING_TABLET),
+        $IS_IMPORTANT
+      );
+      padding-bottom: setImportance(
+        conditionalValue($VALUE_TABLET, $VALUE_TABLET, $PADDING_TABLET),
+        $IS_IMPORTANT
+      );
+    }
+  }
+
+  @mixin laptop {
+    @mixin has-notch {
+      padding-top: setImportance(
+        getNotchValue(
+          top,
+          conditionalValue($VALUE_LAPTOP, $VALUE_LAPTOP, $PADDING_LAPTOP)
+        ),
+        $IS_IMPORTANT
+      );
+      padding-bottom: setImportance(
+        getNotchValue(
+          bottom,
+          conditionalValue($VALUE_LAPTOP, $VALUE_LAPTOP, $PADDING_LAPTOP)
+        ),
+        $IS_IMPORTANT
+      );
+    }
+
+    @mixin no-notch {
+      padding-top: setImportance(
+        conditionalValue($VALUE_LAPTOP, $VALUE_LAPTOP, $PADDING_LAPTOP),
+        $IS_IMPORTANT
+      );
+      padding-bottom: setImportance(
+        conditionalValue($VALUE_LAPTOP, $VALUE_LAPTOP, $PADDING_LAPTOP),
+        $IS_IMPORTANT
+      );
+    }
+  }
+
+  @mixin desktop {
+    @mixin has-notch {
+      padding-top: setImportance(
+        getNotchValue(
+          top,
+          conditionalValue($VALUE_DESKTOP, $VALUE_DESKTOP, $PADDING_DESKTOP)
+        ),
+        $IS_IMPORTANT
+      );
+      padding-bottom: setImportance(
+        getNotchValue(
+          bottom,
+          conditionalValue($VALUE_DESKTOP, $VALUE_DESKTOP, $PADDING_DESKTOP)
+        ),
+        $IS_IMPORTANT
+      );
+    }
+
+    @mixin no-notch {
+      padding-top: setImportance(
+        conditionalValue($VALUE_DESKTOP, $VALUE_DESKTOP, $PADDING_DESKTOP),
+        $IS_IMPORTANT
+      );
+      padding-bottom: setImportance(
+        conditionalValue($VALUE_DESKTOP, $VALUE_DESKTOP, $PADDING_DESKTOP),
+        $IS_IMPORTANT
+      );
+    }
+  }
+}
+
+@define-mixin responsive-notch-padding-x $VALUE_WATCH, $VALUE_PHONE,
+  $VALUE_LARGEPHONE, $VALUE_TABLET, $VALUE_LAPTOP, $VALUE_DESKTOP, $IS_IMPORTANT {
+  @mixin watch {
+    @mixin has-notch {
+      padding-inline-start: setImportance(
+        getNotchValue(
+          left,
+          conditionalValue($VALUE_WATCH, $VALUE_WATCH, $PADDING_WATCH)
+        ),
+        $IS_IMPORTANT
+      );
+      padding-inline-end: setImportance(
+        getNotchValue(
+          right,
+          conditionalValue($VALUE_WATCH, $VALUE_WATCH, $PADDING_WATCH)
+        ),
+        $IS_IMPORTANT
+      );
+    }
+
+    @mixin no-notch {
+      padding-inline-start: setImportance(
+        conditionalValue($VALUE_WATCH, $VALUE_WATCH, $PADDING_WATCH),
+        $IS_IMPORTANT
+      );
+      padding-inline-end: setImportance(
+        conditionalValue($VALUE_WATCH, $VALUE_WATCH, $PADDING_WATCH),
+        $IS_IMPORTANT
+      );
+    }
+  }
+
+  @mixin phone {
+    @mixin has-notch {
+      padding-inline-start: setImportance(
+        getNotchValue(
+          left,
+          conditionalValue($VALUE_PHONE, $VALUE_PHONE, $PADDING_PHONE)
+        ),
+        $IS_IMPORTANT
+      );
+      padding-inline-end: setImportance(
+        getNotchValue(
+          right,
+          conditionalValue($VALUE_PHONE, $VALUE_PHONE, $PADDING_PHONE)
+        ),
+        $IS_IMPORTANT
+      );
+    }
+
+    @mixin no-notch {
+      padding-inline-start: setImportance(
+        conditionalValue($VALUE_PHONE, $VALUE_PHONE, $PADDING_PHONE),
+        $IS_IMPORTANT
+      );
+      padding-inline-end: setImportance(
+        conditionalValue($VALUE_PHONE, $VALUE_PHONE, $PADDING_PHONE),
+        $IS_IMPORTANT
+      );
+    }
+  }
+
+  @mixin largephone {
+    @mixin has-notch {
+      padding-inline-start: setImportance(
+        getNotchValue(
+          left,
+          conditionalValue(
+            $VALUE_LARGEPHONE,
+            $VALUE_LARGEPHONE,
+            $PADDING_LARGEPHONE
+          )
+        ),
+        $IS_IMPORTANT
+      );
+      padding-inline-end: setImportance(
+        getNotchValue(
+          right,
+          conditionalValue(
+            $VALUE_LARGEPHONE,
+            $VALUE_LARGEPHONE,
+            $PADDING_LARGEPHONE
+          )
+        ),
+        $IS_IMPORTANT
+      );
+    }
+
+    @mixin no-notch {
+      padding-inline-start: setImportance(
+        conditionalValue(
+          $VALUE_LARGEPHONE,
+          $VALUE_LARGEPHONE,
+          $PADDING_LARGEPHONE
+        ),
+        $IS_IMPORTANT
+      );
+      padding-inline-end: setImportance(
+        conditionalValue(
+          $VALUE_LARGEPHONE,
+          $VALUE_LARGEPHONE,
+          $PADDING_LARGEPHONE
+        ),
+        $IS_IMPORTANT
+      );
+    }
+  }
+
+  @mixin tablet {
+    @mixin has-notch {
+      padding-inline-start: setImportance(
+        getNotchValue(
+          left,
+          conditionalValue($VALUE_TABLET, $VALUE_TABLET, $PADDING_TABLET)
+        ),
+        $IS_IMPORTANT
+      );
+      padding-inline-end: setImportance(
+        getNotchValue(
+          right,
+          conditionalValue($VALUE_TABLET, $VALUE_TABLET, $PADDING_TABLET)
+        ),
+        $IS_IMPORTANT
+      );
+    }
+
+    @mixin no-notch {
+      padding-inline-start: setImportance(
+        conditionalValue($VALUE_TABLET, $VALUE_TABLET, $PADDING_TABLET),
+        $IS_IMPORTANT
+      );
+      padding-inline-end: setImportance(
+        conditionalValue($VALUE_TABLET, $VALUE_TABLET, $PADDING_TABLET),
+        $IS_IMPORTANT
+      );
+    }
+  }
+
+  @mixin laptop {
+    @mixin has-notch {
+      padding-inline-start: setImportance(
+        getNotchValue(
+          left,
+          conditionalValue($VALUE_LAPTOP, $VALUE_LAPTOP, $PADDING_LAPTOP)
+        ),
+        $IS_IMPORTANT
+      );
+      padding-inline-end: setImportance(
+        getNotchValue(
+          right,
+          conditionalValue($VALUE_LAPTOP, $VALUE_LAPTOP, $PADDING_LAPTOP)
+        ),
+        $IS_IMPORTANT
+      );
+    }
+
+    @mixin no-notch {
+      padding-inline-start: setImportance(
+        conditionalValue($VALUE_LAPTOP, $VALUE_LAPTOP, $PADDING_LAPTOP),
+        $IS_IMPORTANT
+      );
+      padding-inline-end: setImportance(
+        conditionalValue($VALUE_LAPTOP, $VALUE_LAPTOP, $PADDING_LAPTOP),
+        $IS_IMPORTANT
+      );
+    }
+  }
+
+  @mixin desktop {
+    @mixin has-notch {
+      padding-inline-start: setImportance(
+        getNotchValue(
+          left,
+          conditionalValue($VALUE_DESKTOP, $VALUE_DESKTOP, $PADDING_DESKTOP)
+        ),
+        $IS_IMPORTANT
+      );
+      padding-inline-end: setImportance(
+        getNotchValue(
+          right,
+          conditionalValue($VALUE_DESKTOP, $VALUE_DESKTOP, $PADDING_DESKTOP)
+        ),
+        $IS_IMPORTANT
+      );
+    }
+
+    @mixin no-notch {
+      padding-inline-start: setImportance(
+        conditionalValue($VALUE_DESKTOP, $VALUE_DESKTOP, $PADDING_DESKTOP),
+        $IS_IMPORTANT
+      );
+      padding-inline-end: setImportance(
+        conditionalValue($VALUE_DESKTOP, $VALUE_DESKTOP, $PADDING_DESKTOP),
+        $IS_IMPORTANT
+      );
+    }
+  }
+}
+
+@define-mixin responsive-notch-padding-topleft $VALUE_WATCH, $VALUE_PHONE,
+  $VALUE_LARGEPHONE, $VALUE_TABLET, $VALUE_LAPTOP, $VALUE_DESKTOP, $IS_IMPORTANT {
+  @mixin watch {
+    @mixin has-notch {
+      padding-top: setImportance(
+        getNotchValue(
+          top,
+          conditionalValue($VALUE_WATCH, $VALUE_WATCH, $PADDING_WATCH)
+        ),
+        $IS_IMPORTANT
+      );
+      padding-inline-start: setImportance(
+        getNotchValue(
+          left,
+          conditionalValue($VALUE_WATCH, $VALUE_WATCH, $PADDING_WATCH)
+        ),
+        $IS_IMPORTANT
+      );
+    }
+
+    @mixin no-notch {
+      padding-top: setImportance(
+        conditionalValue($VALUE_WATCH, $VALUE_WATCH, $PADDING_WATCH),
+        $IS_IMPORTANT
+      );
+      padding-inline-start: setImportance(
+        conditionalValue($VALUE_WATCH, $VALUE_WATCH, $PADDING_WATCH),
+        $IS_IMPORTANT
+      );
+    }
+  }
+
+  @mixin phone {
+    @mixin has-notch {
+      padding-top: setImportance(
+        getNotchValue(
+          top,
+          conditionalValue($VALUE_PHONE, $VALUE_PHONE, $PADDING_PHONE)
+        ),
+        $IS_IMPORTANT
+      );
+      padding-inline-start: setImportance(
+        getNotchValue(
+          left,
+          conditionalValue($VALUE_PHONE, $VALUE_PHONE, $PADDING_PHONE)
+        ),
+        $IS_IMPORTANT
+      );
+    }
+
+    @mixin no-notch {
+      padding-top: setImportance(
+        conditionalValue($VALUE_PHONE, $VALUE_PHONE, $PADDING_PHONE),
+        $IS_IMPORTANT
+      );
+      padding-inline-start: setImportance(
+        conditionalValue($VALUE_PHONE, $VALUE_PHONE, $PADDING_PHONE),
+        $IS_IMPORTANT
+      );
+    }
+  }
+
+  @mixin largephone {
+    @mixin has-notch {
+      padding-top: setImportance(
+        getNotchValue(
+          top,
+          conditionalValue(
+            $VALUE_LARGEPHONE,
+            $VALUE_LARGEPHONE,
+            $PADDING_LARGEPHONE
+          )
+        ),
+        $IS_IMPORTANT
+      );
+      padding-inline-start: setImportance(
+        getNotchValue(
+          left,
+          conditionalValue(
+            $VALUE_LARGEPHONE,
+            $VALUE_LARGEPHONE,
+            $PADDING_LARGEPHONE
+          )
+        ),
+        $IS_IMPORTANT
+      );
+    }
+
+    @mixin no-notch {
+      padding-top: setImportance(
+        conditionalValue(
+          $VALUE_LARGEPHONE,
+          $VALUE_LARGEPHONE,
+          $PADDING_LARGEPHONE
+        ),
+        $IS_IMPORTANT
+      );
+      padding-inline-start: setImportance(
+        conditionalValue(
+          $VALUE_LARGEPHONE,
+          $VALUE_LARGEPHONE,
+          $PADDING_LARGEPHONE
+        ),
+        $IS_IMPORTANT
+      );
+    }
+  }
+
+  @mixin tablet {
+    @mixin has-notch {
+      padding-top: setImportance(
+        getNotchValue(
+          top,
+          conditionalValue($VALUE_TABLET, $VALUE_TABLET, $PADDING_TABLET)
+        ),
+        $IS_IMPORTANT
+      );
+      padding-inline-start: setImportance(
+        getNotchValue(
+          left,
+          conditionalValue($VALUE_TABLET, $VALUE_TABLET, $PADDING_TABLET)
+        ),
+        $IS_IMPORTANT
+      );
+    }
+
+    @mixin no-notch {
+      padding-top: setImportance(
+        conditionalValue($VALUE_TABLET, $VALUE_TABLET, $PADDING_TABLET),
+        $IS_IMPORTANT
+      );
+      padding-inline-start: setImportance(
+        conditionalValue($VALUE_TABLET, $VALUE_TABLET, $PADDING_TABLET),
+        $IS_IMPORTANT
+      );
+    }
+  }
+
+  @mixin laptop {
+    @mixin has-notch {
+      padding-top: setImportance(
+        getNotchValue(
+          top,
+          conditionalValue($VALUE_LAPTOP, $VALUE_LAPTOP, $PADDING_LAPTOP)
+        ),
+        $IS_IMPORTANT
+      );
+      padding-inline-start: setImportance(
+        getNotchValue(
+          left,
+          conditionalValue($VALUE_LAPTOP, $VALUE_LAPTOP, $PADDING_LAPTOP)
+        ),
+        $IS_IMPORTANT
+      );
+    }
+
+    @mixin no-notch {
+      padding-top: setImportance(
+        conditionalValue($VALUE_LAPTOP, $VALUE_LAPTOP, $PADDING_LAPTOP),
+        $IS_IMPORTANT
+      );
+      padding-inline-start: setImportance(
+        conditionalValue($VALUE_LAPTOP, $VALUE_LAPTOP, $PADDING_LAPTOP),
+        $IS_IMPORTANT
+      );
+    }
+  }
+
+  @mixin desktop {
+    @mixin has-notch {
+      padding-top: setImportance(
+        getNotchValue(
+          top,
+          conditionalValue($VALUE_DESKTOP, $VALUE_DESKTOP, $PADDING_DESKTOP)
+        ),
+        $IS_IMPORTANT
+      );
+      padding-inline-start: setImportance(
+        getNotchValue(
+          left,
+          conditionalValue($VALUE_DESKTOP, $VALUE_DESKTOP, $PADDING_DESKTOP)
+        ),
+        $IS_IMPORTANT
+      );
+    }
+
+    @mixin no-notch {
+      padding-top: setImportance(
+        conditionalValue($VALUE_DESKTOP, $VALUE_DESKTOP, $PADDING_DESKTOP),
+        $IS_IMPORTANT
+      );
+      padding-inline-start: setImportance(
+        conditionalValue($VALUE_DESKTOP, $VALUE_DESKTOP, $PADDING_DESKTOP),
+        $IS_IMPORTANT
+      );
+    }
+  }
+}
+
+@define-mixin responsive-notch-padding-topright $VALUE_WATCH, $VALUE_PHONE,
+  $VALUE_LARGEPHONE, $VALUE_TABLET, $VALUE_LAPTOP, $VALUE_DESKTOP, $IS_IMPORTANT {
+  @mixin watch {
+    @mixin has-notch {
+      padding-top: setImportance(
+        getNotchValue(
+          top,
+          conditionalValue($VALUE_WATCH, $VALUE_WATCH, $PADDING_WATCH)
+        ),
+        $IS_IMPORTANT
+      );
+      padding-inline-end: setImportance(
+        getNotchValue(
+          right,
+          conditionalValue($VALUE_WATCH, $VALUE_WATCH, $PADDING_WATCH)
+        ),
+        $IS_IMPORTANT
+      );
+    }
+
+    @mixin no-notch {
+      padding-top: setImportance(
+        conditionalValue($VALUE_WATCH, $VALUE_WATCH, $PADDING_WATCH),
+        $IS_IMPORTANT
+      );
+      padding-inline-end: setImportance(
+        conditionalValue($VALUE_WATCH, $VALUE_WATCH, $PADDING_WATCH),
+        $IS_IMPORTANT
+      );
+    }
+  }
+
+  @mixin phone {
+    @mixin has-notch {
+      padding-top: setImportance(
+        getNotchValue(
+          top,
+          conditionalValue($VALUE_PHONE, $VALUE_PHONE, $PADDING_PHONE)
+        ),
+        $IS_IMPORTANT
+      );
+      padding-inline-end: setImportance(
+        getNotchValue(
+          right,
+          conditionalValue($VALUE_PHONE, $VALUE_PHONE, $PADDING_PHONE)
+        ),
+        $IS_IMPORTANT
+      );
+    }
+
+    @mixin no-notch {
+      padding-top: setImportance(
+        conditionalValue($VALUE_PHONE, $VALUE_PHONE, $PADDING_PHONE),
+        $IS_IMPORTANT
+      );
+      padding-inline-end: setImportance(
+        conditionalValue($VALUE_PHONE, $VALUE_PHONE, $PADDING_PHONE),
+        $IS_IMPORTANT
+      );
+    }
+  }
+
+  @mixin largephone {
+    @mixin has-notch {
+      padding-top: setImportance(
+        getNotchValue(
+          top,
+          conditionalValue(
+            $VALUE_LARGEPHONE,
+            $VALUE_LARGEPHONE,
+            $PADDING_LARGEPHONE
+          )
+        ),
+        $IS_IMPORTANT
+      );
+      padding-inline-end: setImportance(
+        getNotchValue(
+          right,
+          conditionalValue(
+            $VALUE_LARGEPHONE,
+            $VALUE_LARGEPHONE,
+            $PADDING_LARGEPHONE
+          )
+        ),
+        $IS_IMPORTANT
+      );
+    }
+
+    @mixin no-notch {
+      padding-top: setImportance(
+        conditionalValue(
+          $VALUE_LARGEPHONE,
+          $VALUE_LARGEPHONE,
+          $PADDING_LARGEPHONE
+        ),
+        $IS_IMPORTANT
+      );
+      padding-inline-end: setImportance(
+        conditionalValue(
+          $VALUE_LARGEPHONE,
+          $VALUE_LARGEPHONE,
+          $PADDING_LARGEPHONE
+        ),
+        $IS_IMPORTANT
+      );
+    }
+  }
+
+  @mixin tablet {
+    @mixin has-notch {
+      padding-top: setImportance(
+        getNotchValue(
+          top,
+          conditionalValue($VALUE_TABLET, $VALUE_TABLET, $PADDING_TABLET)
+        ),
+        $IS_IMPORTANT
+      );
+      padding-inline-end: setImportance(
+        getNotchValue(
+          right,
+          conditionalValue($VALUE_TABLET, $VALUE_TABLET, $PADDING_TABLET)
+        ),
+        $IS_IMPORTANT
+      );
+    }
+
+    @mixin no-notch {
+      padding-top: setImportance(
+        conditionalValue($VALUE_TABLET, $VALUE_TABLET, $PADDING_TABLET),
+        $IS_IMPORTANT
+      );
+      padding-inline-end: setImportance(
+        conditionalValue($VALUE_TABLET, $VALUE_TABLET, $PADDING_TABLET),
+        $IS_IMPORTANT
+      );
+    }
+  }
+
+  @mixin laptop {
+    @mixin has-notch {
+      padding-top: setImportance(
+        getNotchValue(
+          top,
+          conditionalValue($VALUE_LAPTOP, $VALUE_LAPTOP, $PADDING_LAPTOP)
+        ),
+        $IS_IMPORTANT
+      );
+      padding-inline-end: setImportance(
+        getNotchValue(
+          right,
+          conditionalValue($VALUE_LAPTOP, $VALUE_LAPTOP, $PADDING_LAPTOP)
+        ),
+        $IS_IMPORTANT
+      );
+    }
+
+    @mixin no-notch {
+      padding-top: setImportance(
+        conditionalValue($VALUE_LAPTOP, $VALUE_LAPTOP, $PADDING_LAPTOP),
+        $IS_IMPORTANT
+      );
+      padding-inline-end: setImportance(
+        conditionalValue($VALUE_LAPTOP, $VALUE_LAPTOP, $PADDING_LAPTOP),
+        $IS_IMPORTANT
+      );
+    }
+  }
+
+  @mixin desktop {
+    @mixin has-notch {
+      padding-top: setImportance(
+        getNotchValue(
+          top,
+          conditionalValue($VALUE_DESKTOP, $VALUE_DESKTOP, $PADDING_DESKTOP)
+        ),
+        $IS_IMPORTANT
+      );
+      padding-inline-end: setImportance(
+        getNotchValue(
+          right,
+          conditionalValue($VALUE_DESKTOP, $VALUE_DESKTOP, $PADDING_DESKTOP)
+        ),
+        $IS_IMPORTANT
+      );
+    }
+
+    @mixin no-notch {
+      padding-top: setImportance(
+        conditionalValue($VALUE_DESKTOP, $VALUE_DESKTOP, $PADDING_DESKTOP),
+        $IS_IMPORTANT
+      );
+      padding-inline-end: setImportance(
+        conditionalValue($VALUE_DESKTOP, $VALUE_DESKTOP, $PADDING_DESKTOP),
+        $IS_IMPORTANT
+      );
+    }
+  }
+}
+
+@define-mixin responsive-notch-padding-bottomleft $VALUE_WATCH, $VALUE_PHONE,
+  $VALUE_LARGEPHONE, $VALUE_TABLET, $VALUE_LAPTOP, $VALUE_DESKTOP, $IS_IMPORTANT {
+  @mixin watch {
+    @mixin has-notch {
+      padding-bottom: setImportance(
+        getNotchValue(
+          bottom,
+          conditionalValue($VALUE_WATCH, $VALUE_WATCH, $PADDING_WATCH)
+        ),
+        $IS_IMPORTANT
+      );
+      padding-inline-start: setImportance(
+        getNotchValue(
+          left,
+          conditionalValue($VALUE_WATCH, $VALUE_WATCH, $PADDING_WATCH)
+        ),
+        $IS_IMPORTANT
+      );
+    }
+
+    @mixin no-notch {
+      padding-bottom: setImportance(
+        conditionalValue($VALUE_WATCH, $VALUE_WATCH, $PADDING_WATCH),
+        $IS_IMPORTANT
+      );
+      padding-inline-start: setImportance(
+        conditionalValue($VALUE_WATCH, $VALUE_WATCH, $PADDING_WATCH),
+        $IS_IMPORTANT
+      );
+    }
+  }
+
+  @mixin phone {
+    @mixin has-notch {
+      padding-bottom: setImportance(
+        getNotchValue(
+          bottom,
+          conditionalValue($VALUE_PHONE, $VALUE_PHONE, $PADDING_PHONE)
+        ),
+        $IS_IMPORTANT
+      );
+      padding-inline-start: setImportance(
+        getNotchValue(
+          left,
+          conditionalValue($VALUE_PHONE, $VALUE_PHONE, $PADDING_PHONE)
+        ),
+        $IS_IMPORTANT
+      );
+    }
+
+    @mixin no-notch {
+      padding-bottom: setImportance(
+        conditionalValue($VALUE_PHONE, $VALUE_PHONE, $PADDING_PHONE),
+        $IS_IMPORTANT
+      );
+      padding-inline-start: setImportance(
+        conditionalValue($VALUE_PHONE, $VALUE_PHONE, $PADDING_PHONE),
+        $IS_IMPORTANT
+      );
+    }
+  }
+
+  @mixin largephone {
+    @mixin has-notch {
+      padding-bottom: setImportance(
+        getNotchValue(
+          bottom,
+          conditionalValue(
+            $VALUE_LARGEPHONE,
+            $VALUE_LARGEPHONE,
+            $PADDING_LARGEPHONE
+          )
+        ),
+        $IS_IMPORTANT
+      );
+      padding-inline-start: setImportance(
+        getNotchValue(
+          left,
+          conditionalValue(
+            $VALUE_LARGEPHONE,
+            $VALUE_LARGEPHONE,
+            $PADDING_LARGEPHONE
+          )
+        ),
+        $IS_IMPORTANT
+      );
+    }
+
+    @mixin no-notch {
+      padding-bottom: setImportance(
+        conditionalValue(
+          $VALUE_LARGEPHONE,
+          $VALUE_LARGEPHONE,
+          $PADDING_LARGEPHONE
+        ),
+        $IS_IMPORTANT
+      );
+      padding-inline-start: setImportance(
+        conditionalValue(
+          $VALUE_LARGEPHONE,
+          $VALUE_LARGEPHONE,
+          $PADDING_LARGEPHONE
+        ),
+        $IS_IMPORTANT
+      );
+    }
+  }
+
+  @mixin tablet {
+    @mixin has-notch {
+      padding-bottom: setImportance(
+        getNotchValue(
+          bottom,
+          conditionalValue($VALUE_TABLET, $VALUE_TABLET, $PADDING_TABLET)
+        ),
+        $IS_IMPORTANT
+      );
+      padding-inline-start: setImportance(
+        getNotchValue(
+          left,
+          conditionalValue($VALUE_TABLET, $VALUE_TABLET, $PADDING_TABLET)
+        ),
+        $IS_IMPORTANT
+      );
+    }
+
+    @mixin no-notch {
+      padding-bottom: setImportance(
+        conditionalValue($VALUE_TABLET, $VALUE_TABLET, $PADDING_TABLET),
+        $IS_IMPORTANT
+      );
+      padding-inline-start: setImportance(
+        conditionalValue($VALUE_TABLET, $VALUE_TABLET, $PADDING_TABLET),
+        $IS_IMPORTANT
+      );
+    }
+  }
+
+  @mixin laptop {
+    @mixin has-notch {
+      padding-bottom: setImportance(
+        getNotchValue(
+          bottom,
+          conditionalValue($VALUE_LAPTOP, $VALUE_LAPTOP, $PADDING_LAPTOP)
+        ),
+        $IS_IMPORTANT
+      );
+      padding-inline-start: setImportance(
+        getNotchValue(
+          left,
+          conditionalValue($VALUE_LAPTOP, $VALUE_LAPTOP, $PADDING_LAPTOP)
+        ),
+        $IS_IMPORTANT
+      );
+    }
+
+    @mixin no-notch {
+      padding-bottom: setImportance(
+        conditionalValue($VALUE_LAPTOP, $VALUE_LAPTOP, $PADDING_LAPTOP),
+        $IS_IMPORTANT
+      );
+      padding-inline-start: setImportance(
+        conditionalValue($VALUE_LAPTOP, $VALUE_LAPTOP, $PADDING_LAPTOP),
+        $IS_IMPORTANT
+      );
+    }
+  }
+
+  @mixin desktop {
+    @mixin has-notch {
+      padding-bottom: setImportance(
+        getNotchValue(
+          bottom,
+          conditionalValue($VALUE_DESKTOP, $VALUE_DESKTOP, $PADDING_DESKTOP)
+        ),
+        $IS_IMPORTANT
+      );
+      padding-inline-start: setImportance(
+        getNotchValue(
+          left,
+          conditionalValue($VALUE_DESKTOP, $VALUE_DESKTOP, $PADDING_DESKTOP)
+        ),
+        $IS_IMPORTANT
+      );
+    }
+
+    @mixin no-notch {
+      padding-bottom: setImportance(
+        conditionalValue($VALUE_DESKTOP, $VALUE_DESKTOP, $PADDING_DESKTOP),
+        $IS_IMPORTANT
+      );
+      padding-inline-start: setImportance(
+        conditionalValue($VALUE_DESKTOP, $VALUE_DESKTOP, $PADDING_DESKTOP),
+        $IS_IMPORTANT
+      );
+    }
+  }
+}
+
+@define-mixin responsive-notch-padding-bottomright $VALUE_WATCH, $VALUE_PHONE,
+  $VALUE_LARGEPHONE, $VALUE_TABLET, $VALUE_LAPTOP, $VALUE_DESKTOP, $IS_IMPORTANT {
+  @mixin watch {
+    @mixin has-notch {
+      padding-bottom: setImportance(
+        getNotchValue(
+          bottom,
+          conditionalValue($VALUE_WATCH, $VALUE_WATCH, $PADDING_WATCH)
+        ),
+        $IS_IMPORTANT
+      );
+      padding-inline-end: setImportance(
+        getNotchValue(
+          right,
+          conditionalValue($VALUE_WATCH, $VALUE_WATCH, $PADDING_WATCH)
+        ),
+        $IS_IMPORTANT
+      );
+    }
+
+    @mixin no-notch {
+      padding-bottom: setImportance(
+        conditionalValue($VALUE_WATCH, $VALUE_WATCH, $PADDING_WATCH),
+        $IS_IMPORTANT
+      );
+      padding-inline-end: setImportance(
+        conditionalValue($VALUE_WATCH, $VALUE_WATCH, $PADDING_WATCH),
+        $IS_IMPORTANT
+      );
+    }
+  }
+
+  @mixin phone {
+    @mixin has-notch {
+      padding-bottom: setImportance(
+        getNotchValue(
+          bottom,
+          conditionalValue($VALUE_PHONE, $VALUE_PHONE, $PADDING_PHONE)
+        ),
+        $IS_IMPORTANT
+      );
+      padding-inline-end: setImportance(
+        getNotchValue(
+          right,
+          conditionalValue($VALUE_PHONE, $VALUE_PHONE, $PADDING_PHONE)
+        ),
+        $IS_IMPORTANT
+      );
+    }
+
+    @mixin no-notch {
+      padding-bottom: setImportance(
+        conditionalValue($VALUE_PHONE, $VALUE_PHONE, $PADDING_PHONE),
+        $IS_IMPORTANT
+      );
+      padding-inline-end: setImportance(
+        conditionalValue($VALUE_PHONE, $VALUE_PHONE, $PADDING_PHONE),
+        $IS_IMPORTANT
+      );
+    }
+  }
+
+  @mixin largephone {
+    @mixin has-notch {
+      padding-bottom: setImportance(
+        getNotchValue(
+          bottom,
+          conditionalValue(
+            $VALUE_LARGEPHONE,
+            $VALUE_LARGEPHONE,
+            $PADDING_LARGEPHONE
+          )
+        ),
+        $IS_IMPORTANT
+      );
+      padding-inline-end: setImportance(
+        getNotchValue(
+          right,
+          conditionalValue(
+            $VALUE_LARGEPHONE,
+            $VALUE_LARGEPHONE,
+            $PADDING_LARGEPHONE
+          )
+        ),
+        $IS_IMPORTANT
+      );
+    }
+
+    @mixin no-notch {
+      padding-bottom: setImportance(
+        conditionalValue(
+          $VALUE_LARGEPHONE,
+          $VALUE_LARGEPHONE,
+          $PADDING_LARGEPHONE
+        ),
+        $IS_IMPORTANT
+      );
+      padding-inline-end: setImportance(
+        conditionalValue(
+          $VALUE_LARGEPHONE,
+          $VALUE_LARGEPHONE,
+          $PADDING_LARGEPHONE
+        ),
+        $IS_IMPORTANT
+      );
+    }
+  }
+
+  @mixin tablet {
+    @mixin has-notch {
+      padding-bottom: setImportance(
+        getNotchValue(
+          bottom,
+          conditionalValue($VALUE_TABLET, $VALUE_TABLET, $PADDING_TABLET)
+        ),
+        $IS_IMPORTANT
+      );
+      padding-inline-end: setImportance(
+        getNotchValue(
+          right,
+          conditionalValue($VALUE_TABLET, $VALUE_TABLET, $PADDING_TABLET)
+        ),
+        $IS_IMPORTANT
+      );
+    }
+
+    @mixin no-notch {
+      padding-bottom: setImportance(
+        conditionalValue($VALUE_TABLET, $VALUE_TABLET, $PADDING_TABLET),
+        $IS_IMPORTANT
+      );
+      padding-inline-end: setImportance(
+        conditionalValue($VALUE_TABLET, $VALUE_TABLET, $PADDING_TABLET),
+        $IS_IMPORTANT
+      );
+    }
+  }
+
+  @mixin laptop {
+    @mixin has-notch {
+      padding-bottom: setImportance(
+        getNotchValue(
+          bottom,
+          conditionalValue($VALUE_LAPTOP, $VALUE_LAPTOP, $PADDING_LAPTOP)
+        ),
+        $IS_IMPORTANT
+      );
+      padding-inline-end: setImportance(
+        getNotchValue(
+          right,
+          conditionalValue($VALUE_LAPTOP, $VALUE_LAPTOP, $PADDING_LAPTOP)
+        ),
+        $IS_IMPORTANT
+      );
+    }
+
+    @mixin no-notch {
+      padding-bottom: setImportance(
+        conditionalValue($VALUE_LAPTOP, $VALUE_LAPTOP, $PADDING_LAPTOP),
+        $IS_IMPORTANT
+      );
+      padding-inline-end: setImportance(
+        conditionalValue($VALUE_LAPTOP, $VALUE_LAPTOP, $PADDING_LAPTOP),
+        $IS_IMPORTANT
+      );
+    }
+  }
+
+  @mixin desktop {
+    @mixin has-notch {
+      padding-bottom: setImportance(
+        getNotchValue(
+          bottom,
+          conditionalValue($VALUE_DESKTOP, $VALUE_DESKTOP, $PADDING_DESKTOP)
+        ),
+        $IS_IMPORTANT
+      );
+      padding-inline-end: setImportance(
+        getNotchValue(
+          right,
+          conditionalValue($VALUE_DESKTOP, $VALUE_DESKTOP, $PADDING_DESKTOP)
+        ),
+        $IS_IMPORTANT
+      );
+    }
+
+    @mixin no-notch {
+      padding-bottom: setImportance(
+        conditionalValue($VALUE_DESKTOP, $VALUE_DESKTOP, $PADDING_DESKTOP),
+        $IS_IMPORTANT
+      );
+      padding-inline-end: setImportance(
+        conditionalValue($VALUE_DESKTOP, $VALUE_DESKTOP, $PADDING_DESKTOP),
+        $IS_IMPORTANT
+      );
+    }
+  }
+}
+
+@define-mixin responsive-notch-padding $VALUE_WATCH, $VALUE_PHONE,
+  $VALUE_LARGEPHONE, $VALUE_TABLET, $VALUE_LAPTOP, $VALUE_DESKTOP, $IS_IMPORTANT {
+  @mixin watch {
+    @mixin has-notch {
+      padding-top: setImportance(
+        getNotchValue(
+          top,
+          conditionalValue($VALUE_WATCH, $VALUE_WATCH, $PADDING_WATCH)
+        ),
+        $IS_IMPORTANT
+      );
+      padding-bottom: setImportance(
+        getNotchValue(
+          bottom,
+          conditionalValue($VALUE_WATCH, $VALUE_WATCH, $PADDING_WATCH)
+        ),
+        $IS_IMPORTANT
+      );
+      padding-inline-start: setImportance(
+        getNotchValue(
+          left,
+          conditionalValue($VALUE_WATCH, $VALUE_WATCH, $PADDING_WATCH)
+        ),
+        $IS_IMPORTANT
+      );
+      padding-inline-end: setImportance(
+        getNotchValue(
+          right,
+          conditionalValue($VALUE_WATCH, $VALUE_WATCH, $PADDING_WATCH)
+        ),
+        $IS_IMPORTANT
+      );
+    }
+
+    @mixin no-notch {
+      padding-top: setImportance(
+        conditionalValue($VALUE_WATCH, $VALUE_WATCH, $PADDING_WATCH),
+        $IS_IMPORTANT
+      );
+      padding-bottom: setImportance(
+        conditionalValue($VALUE_WATCH, $VALUE_WATCH, $PADDING_WATCH),
+        $IS_IMPORTANT
+      );
+      padding-inline-start: setImportance(
+        conditionalValue($VALUE_WATCH, $VALUE_WATCH, $PADDING_WATCH),
+        $IS_IMPORTANT
+      );
+      padding-inline-end: setImportance(
+        conditionalValue($VALUE_WATCH, $VALUE_WATCH, $PADDING_WATCH),
+        $IS_IMPORTANT
+      );
+    }
+  }
+
+  @mixin phone {
+    @mixin has-notch {
+      padding-top: setImportance(
+        getNotchValue(
+          top,
+          conditionalValue($VALUE_PHONE, $VALUE_PHONE, $PADDING_PHONE)
+        ),
+        $IS_IMPORTANT
+      );
+      padding-bottom: setImportance(
+        getNotchValue(
+          bottom,
+          conditionalValue($VALUE_PHONE, $VALUE_PHONE, $PADDING_PHONE)
+        ),
+        $IS_IMPORTANT
+      );
+      padding-inline-start: setImportance(
+        getNotchValue(
+          left,
+          conditionalValue($VALUE_PHONE, $VALUE_PHONE, $PADDING_PHONE)
+        ),
+        $IS_IMPORTANT
+      );
+      padding-inline-end: setImportance(
+        getNotchValue(
+          right,
+          conditionalValue($VALUE_PHONE, $VALUE_PHONE, $PADDING_PHONE)
+        ),
+        $IS_IMPORTANT
+      );
+    }
+
+    @mixin no-notch {
+      padding-top: setImportance(
+        conditionalValue($VALUE_PHONE, $VALUE_PHONE, $PADDING_PHONE),
+        $IS_IMPORTANT
+      );
+      padding-bottom: setImportance(
+        conditionalValue($VALUE_PHONE, $VALUE_PHONE, $PADDING_PHONE),
+        $IS_IMPORTANT
+      );
+      padding-inline-start: setImportance(
+        conditionalValue($VALUE_PHONE, $VALUE_PHONE, $PADDING_PHONE),
+        $IS_IMPORTANT
+      );
+      padding-inline-end: setImportance(
+        conditionalValue($VALUE_PHONE, $VALUE_PHONE, $PADDING_PHONE),
+        $IS_IMPORTANT
+      );
+    }
+  }
+
+  @mixin largephone {
+    @mixin has-notch {
+      padding-top: setImportance(
+        getNotchValue(
+          top,
+          conditionalValue(
+            $VALUE_LARGEPHONE,
+            $VALUE_LARGEPHONE,
+            $PADDING_LARGEPHONE
+          )
+        ),
+        $IS_IMPORTANT
+      );
+      padding-bottom: setImportance(
+        getNotchValue(
+          bottom,
+          conditionalValue(
+            $VALUE_LARGEPHONE,
+            $VALUE_LARGEPHONE,
+            $PADDING_LARGEPHONE
+          )
+        ),
+        $IS_IMPORTANT
+      );
+      padding-inline-start: setImportance(
+        getNotchValue(
+          left,
+          conditionalValue(
+            $VALUE_LARGEPHONE,
+            $VALUE_LARGEPHONE,
+            $PADDING_LARGEPHONE
+          )
+        ),
+        $IS_IMPORTANT
+      );
+      padding-inline-end: setImportance(
+        getNotchValue(
+          right,
+          conditionalValue(
+            $VALUE_LARGEPHONE,
+            $VALUE_LARGEPHONE,
+            $PADDING_LARGEPHONE
+          )
+        ),
+        $IS_IMPORTANT
+      );
+    }
+
+    @mixin no-notch {
+      padding-top: setImportance(
+        conditionalValue(
+          $VALUE_LARGEPHONE,
+          $VALUE_LARGEPHONE,
+          $PADDING_LARGEPHONE
+        ),
+        $IS_IMPORTANT
+      );
+      padding-bottom: setImportance(
+        conditionalValue(
+          $VALUE_LARGEPHONE,
+          $VALUE_LARGEPHONE,
+          $PADDING_LARGEPHONE
+        ),
+        $IS_IMPORTANT
+      );
+      padding-inline-start: setImportance(
+        conditionalValue(
+          $VALUE_LARGEPHONE,
+          $VALUE_LARGEPHONE,
+          $PADDING_LARGEPHONE
+        ),
+        $IS_IMPORTANT
+      );
+      padding-inline-end: setImportance(
+        conditionalValue(
+          $VALUE_LARGEPHONE,
+          $VALUE_LARGEPHONE,
+          $PADDING_LARGEPHONE
+        ),
+        $IS_IMPORTANT
+      );
+    }
+  }
+
+  @mixin tablet {
+    @mixin has-notch {
+      padding-top: setImportance(
+        getNotchValue(
+          top,
+          conditionalValue($VALUE_TABLET, $VALUE_TABLET, $PADDING_TABLET)
+        ),
+        $IS_IMPORTANT
+      );
+      padding-bottom: setImportance(
+        getNotchValue(
+          bottom,
+          conditionalValue($VALUE_TABLET, $VALUE_TABLET, $PADDING_TABLET)
+        ),
+        $IS_IMPORTANT
+      );
+      padding-inline-start: setImportance(
+        getNotchValue(
+          left,
+          conditionalValue($VALUE_TABLET, $VALUE_TABLET, $PADDING_TABLET)
+        ),
+        $IS_IMPORTANT
+      );
+      padding-inline-end: setImportance(
+        getNotchValue(
+          right,
+          conditionalValue($VALUE_TABLET, $VALUE_TABLET, $PADDING_TABLET)
+        ),
+        $IS_IMPORTANT
+      );
+    }
+
+    @mixin no-notch {
+      padding-top: setImportance(
+        conditionalValue($VALUE_TABLET, $VALUE_TABLET, $PADDING_TABLET),
+        $IS_IMPORTANT
+      );
+      padding-bottom: setImportance(
+        conditionalValue($VALUE_TABLET, $VALUE_TABLET, $PADDING_TABLET),
+        $IS_IMPORTANT
+      );
+      padding-inline-start: setImportance(
+        conditionalValue($VALUE_TABLET, $VALUE_TABLET, $PADDING_TABLET),
+        $IS_IMPORTANT
+      );
+      padding-inline-end: setImportance(
+        conditionalValue($VALUE_TABLET, $VALUE_TABLET, $PADDING_TABLET),
+        $IS_IMPORTANT
+      );
+    }
+  }
+
+  @mixin laptop {
+    @mixin has-notch {
+      padding-top: setImportance(
+        getNotchValue(
+          top,
+          conditionalValue($VALUE_LAPTOP, $VALUE_LAPTOP, $PADDING_LAPTOP)
+        ),
+        $IS_IMPORTANT
+      );
+      padding-bottom: setImportance(
+        getNotchValue(
+          bottom,
+          conditionalValue($VALUE_LAPTOP, $VALUE_LAPTOP, $PADDING_LAPTOP)
+        ),
+        $IS_IMPORTANT
+      );
+      padding-inline-start: setImportance(
+        getNotchValue(
+          left,
+          conditionalValue($VALUE_LAPTOP, $VALUE_LAPTOP, $PADDING_LAPTOP)
+        ),
+        $IS_IMPORTANT
+      );
+      padding-inline-end: setImportance(
+        getNotchValue(
+          right,
+          conditionalValue($VALUE_LAPTOP, $VALUE_LAPTOP, $PADDING_LAPTOP)
+        ),
+        $IS_IMPORTANT
+      );
+    }
+
+    @mixin no-notch {
+      padding-top: setImportance(
+        conditionalValue($VALUE_LAPTOP, $VALUE_LAPTOP, $PADDING_LAPTOP),
+        $IS_IMPORTANT
+      );
+      padding-bottom: setImportance(
+        conditionalValue($VALUE_LAPTOP, $VALUE_LAPTOP, $PADDING_LAPTOP),
+        $IS_IMPORTANT
+      );
+      padding-inline-start: setImportance(
+        conditionalValue($VALUE_LAPTOP, $VALUE_LAPTOP, $PADDING_LAPTOP),
+        $IS_IMPORTANT
+      );
+      padding-inline-end: setImportance(
+        conditionalValue($VALUE_LAPTOP, $VALUE_LAPTOP, $PADDING_LAPTOP),
+        $IS_IMPORTANT
+      );
+    }
+  }
+
+  @mixin desktop {
+    @mixin has-notch {
+      padding-top: setImportance(
+        getNotchValue(
+          top,
+          conditionalValue($VALUE_DESKTOP, $VALUE_DESKTOP, $PADDING_DESKTOP)
+        ),
+        $IS_IMPORTANT
+      );
+      padding-bottom: setImportance(
+        getNotchValue(
+          bottom,
+          conditionalValue($VALUE_DESKTOP, $VALUE_DESKTOP, $PADDING_DESKTOP)
+        ),
+        $IS_IMPORTANT
+      );
+      padding-inline-start: setImportance(
+        getNotchValue(
+          left,
+          conditionalValue($VALUE_DESKTOP, $VALUE_DESKTOP, $PADDING_DESKTOP)
+        ),
+        $IS_IMPORTANT
+      );
+      padding-inline-end: setImportance(
+        getNotchValue(
+          right,
+          conditionalValue($VALUE_DESKTOP, $VALUE_DESKTOP, $PADDING_DESKTOP)
+        ),
+        $IS_IMPORTANT
+      );
+    }
+
+    @mixin no-notch {
+      padding-top: setImportance(
+        conditionalValue($VALUE_DESKTOP, $VALUE_DESKTOP, $PADDING_DESKTOP),
+        $IS_IMPORTANT
+      );
+      padding-bottom: setImportance(
+        conditionalValue($VALUE_DESKTOP, $VALUE_DESKTOP, $PADDING_DESKTOP),
+        $IS_IMPORTANT
+      );
+      padding-inline-start: setImportance(
+        conditionalValue($VALUE_DESKTOP, $VALUE_DESKTOP, $PADDING_DESKTOP),
+        $IS_IMPORTANT
+      );
+      padding-inline-end: setImportance(
+        conditionalValue($VALUE_DESKTOP, $VALUE_DESKTOP, $PADDING_DESKTOP),
+        $IS_IMPORTANT
+      );
+    }
+  }
+}

@@ -1,0 +1,29 @@
+@import '../../design-tokens/text.css';
+@import '../direction.css';
+
+@define-mixin start $VALUE, $IS_IMPORTANT {
+  @mixin LTR {
+    left: setImportance($VALUE, $IS_IMPORTANT);
+  }
+
+  @mixin RTL {
+    right: setImportance($VALUE, $IS_IMPORTANT);
+  }
+}
+
+@define-mixin end $VALUE, $IS_IMPORTANT {
+  @mixin LTR {
+    right: setImportance($VALUE, $IS_IMPORTANT);
+  }
+
+  @mixin RTL {
+    left: setImportance($VALUE, $IS_IMPORTANT);
+  }
+}
+
+@define-mixin inset $VALUE, $IS_IMPORTANT {
+  bottom: setImportance($VALUE, $IS_IMPORTANT);
+  left: setImportance($VALUE, $IS_IMPORTANT);
+  right: setImportance($VALUE, $IS_IMPORTANT);
+  top: setImportance($VALUE, $IS_IMPORTANT);
+}

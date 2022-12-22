@@ -1,0 +1,28 @@
+@import '../viewport.css';
+
+@define-mixin apply-property-responsively $PROPERTY, $VALUE_WATCH, $VALUE_PHONE,
+  $VALUE_LARGEPHONE, $VALUE_TABLET, $VALUE_LAPTOP, $VALUE_DESKTOP, $IS_IMPORTANT {
+  @mixin watch {
+    $(PROPERTY): setImportance($VALUE_WATCH, $IS_IMPORTANT);
+  }
+
+  @mixin phone {
+    $(PROPERTY): setImportance($VALUE_PHONE, $IS_IMPORTANT);
+  }
+
+  @mixin LARGEPHONE {
+    $(PROPERTY): setImportance($VALUE_LARGEPHONE, $IS_IMPORTANT);
+  }
+
+  @mixin tablet {
+    $(PROPERTY): setImportance($VALUE_TABLET, $IS_IMPORTANT);
+  }
+
+  @mixin laptop {
+    $(PROPERTY): setImportance($VALUE_LAPTOP, $IS_IMPORTANT);
+  }
+
+  @mixin desktop {
+    $(PROPERTY): setImportance($VALUE_DESKTOP, $IS_IMPORTANT);
+  }
+}

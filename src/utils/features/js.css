@@ -1,0 +1,13 @@
+@import '../../constants.css';
+
+@define-mixin has-js-support {
+  html:global(.$(JS)) & {
+    @mixin-content;
+  }
+}
+
+@define-mixin no-js-support {
+  html:global(.$(NO_JS)) & {
+    @mixin-content;
+  }
+}

@@ -1,0 +1,6 @@
+@define-mixin fill-container-height $MIN_HEIGHT: 100% {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  min-height: $MIN_HEIGHT;
+}

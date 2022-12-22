@@ -1,0 +1,12 @@
+@define-mixin sr-only $IS_IMPORTANT {
+  border: setImportance(0, $IS_IMPORTANT);
+  clip: setImportance(rect(0, 0, 0, 0), $IS_IMPORTANT);
+  height: setImportance(1px, $IS_IMPORTANT);
+  margin: setImportance(-1px, $IS_IMPORTANT);
+  overflow: setImportance(hidden, $IS_IMPORTANT);
+  padding: setImportance(0, $IS_IMPORTANT);
+  position: setImportance(absolute, $IS_IMPORTANT);
+  white-space: setImportance(nowrap, $IS_IMPORTANT);
+  width: setImportance(1px, $IS_IMPORTANT);
+  word-wrap: setImportance(normal, $IS_IMPORTANT);
+}

@@ -1,0 +1,21 @@
+@import './device/notch.css';
+@import './properties/margin.css';
+
+@define-mixin stretch-to-edge-x $PADDING_OR_MARGIN {
+  width: 100vw !important;
+
+  @mixin has-notch {
+    @mixin margin-start
+        min(calc(-1 * $PADDING_OR_MARGIN), calc(-1 * env(safe-area-inset-left))),
+      !important;
+    max-width: calc(
+      100% + max($PADDING_OR_MARGIN, env(safe-area-inset-left)) +
+        max($PADDING_OR_MARGIN, env(safe-area-inset-right))
+    );
+  }
+
+  @mixin no-notch {
+    @mixin margin-start $PADDING_OR_MARGIN;
+    max-width: calc(100% + (2 * $PADDING_OR_MARGIN));
+  }
+}

@@ -1,0 +1,63 @@
+@import '../../design-tokens/text.css';
+
+@define-mixin text $SIZE: normal, $IS_IMPORTANT {
+  font-size: conditionalValue(
+    isEqual($SIZE, small),
+    setImportance($TEXT_SIZE_SMALL, $IS_IMPORTANT),
+    conditionalValue(
+      isEqual($SIZE, normal),
+      setImportance($TEXT_SIZE_NORMAL, $IS_IMPORTANT),
+      conditionalValue(
+        isEqual($SIZE, large),
+        setImportance($TEXT_SIZE_LARGE, $IS_IMPORTANT),
+        conditionalValue(
+          isEqual($SIZE, xlarge),
+          setImportance($TEXT_SIZE_EXTRA_LARGE, $IS_IMPORTANT),
+          conditionalValue(
+            isEqual($SIZE, 1.5xlarge),
+            setImportance($TEXT_SIZE_1P5_EXTRA_LARGE, $IS_IMPORTANT),
+            conditionalValue(
+              isEqual($SIZE, 2xlarge),
+              setImportance($TEXT_SIZE_2_EXTRA_LARGE, $IS_IMPORTANT),
+              conditionalValue(
+                isEqual($SIZE, 2.5xlarge),
+                setImportance($TEXT_SIZE_2P5_EXTRA_LARGE, $IS_IMPORTANT),
+                conditionalValue(
+                  isEqual($SIZE, 3xlarge),
+                  setImportance($TEXT_SIZE_3_EXTRA_LARGE, $IS_IMPORTANT),
+                  conditionalValue(
+                    isEqual($SIZE, 4xlarge),
+                    setImportance($TEXT_SIZE_4_EXTRA_LARGE, $IS_IMPORTANT),
+                    conditionalValue(
+                      isEqual($SIZE, 5xlarge),
+                      setImportance($TEXT_SIZE_5_EXTRA_LARGE, $IS_IMPORTANT),
+                      conditionalValue(
+                        isEqual($SIZE, 8xlarge),
+                        setImportance($TEXT_SIZE_8_EXTRA_LARGE, $IS_IMPORTANT),
+                        conditionalValue(
+                          isEqual($SIZE, 9xlarge),
+                          setImportance(
+                            $TEXT_SIZE_9_EXTRA_LARGE,
+                            $IS_IMPORTANT
+                          ),
+                          conditionalValue(
+                            isEqual($SIZE, 10xlarge),
+                            setImportance(
+                              $TEXT_SIZE_10_EXTRA_LARGE,
+                              $IS_IMPORTANT
+                            ),
+                            $SIZE
+                          )
+                        )
+                      )
+                    )
+                  )
+                )
+              )
+            )
+          )
+        )
+      )
+    )
+  );
+}

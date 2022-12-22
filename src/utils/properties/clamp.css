@@ -1,0 +1,9 @@
+@define-mixin clamp $PROPERTY, $MIN, $VALUE, $MAX, $FALLBACK, $IS_IMPORTANT {
+  @supports (width: clamp(0px, 0px, 0px)) {
+    $(PROPERTY): setImportance(clamp($MIN, $VALUE, $MAX), $IS_IMPORTANT);
+  }
+
+  @supports not (width: clamp(0px, 0px, 0px)) {
+    $(PROPERTY): setImportance($FALLBACK, $IS_IMPORTANT);
+  }
+}

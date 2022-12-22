@@ -1,0 +1,39 @@
+@define-mixin font-weight $FONT_WEIGHT: normal, $IS_IMPORTANT {
+  font-weight: conditionalValue(
+    isEqual($FONT_WEIGHT, thin),
+    setImportance(100, $IS_IMPORTANT),
+    conditionalValue(
+      isEqual($FONT_WEIGHT, lighter),
+      setImportance(200, $IS_IMPORTANT),
+      conditionalValue(
+        isEqual($FONT_WEIGHT, light),
+        setImportance(300, $IS_IMPORTANT),
+        conditionalValue(
+          isEqual($FONT_WEIGHT, normal),
+          setImportance(400, $IS_IMPORTANT),
+          conditionalValue(
+            isEqual($FONT_WEIGHT, medium),
+            setImportance(500, $IS_IMPORTANT),
+            conditionalValue(
+              isEqual($FONT_WEIGHT, semibold),
+              setImportance(600, $IS_IMPORTANT),
+              conditionalValue(
+                isEqual($FONT_WEIGHT, bold),
+                setImportance(700, $IS_IMPORTANT),
+                conditionalValue(
+                  isEqual($FONT_WEIGHT, bolder),
+                  setImportance(800, $IS_IMPORTANT),
+                  conditionalValue(
+                    isEqual($FONT_WEIGHT, black),
+                    setImportance(900, $IS_IMPORTANT),
+                    $FONT_WEIGHT
+                  )
+                )
+              )
+            )
+          )
+        )
+      )
+    )
+  );
+}

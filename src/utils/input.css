@@ -1,0 +1,26 @@
+@import './appearance.css';
+
+@define-mixin default-placeholder-styles $COLOR {
+  opacity: 1 !important;
+
+  @mixin appearance-light {
+    color: $COLOR !important;
+  }
+
+  @mixin appearance-dark {
+    color: $COLOR !important;
+  }
+}
+
+@define-mixin remove-input-autofill-decorators {
+  &:-webkit-autofill,
+  &:-webkit-autofill:hover,
+  &:-webkit-autofill:focus,
+  &:-webkit-autofill:active {
+    background-clip: content-box !important;
+    background-color: rgba(255, 255, 255, 0) !important;
+    box-shadow: 0 0 0 3.75rem rgb(255, 255, 255, 0) inset !important;
+    padding-left: 0.625rem !important;
+    padding-right: 0.625rem !important;
+  }
+}

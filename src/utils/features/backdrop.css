@@ -1,0 +1,15 @@
+@define-mixin has-backdrop-filter-support {
+  @supports (
+    (backdrop-filter: blur(0px)) or (-webkit-backdrop-filter: blur(0px))
+  ) {
+    @mixin-content;
+  }
+}
+
+@define-mixin no-backdrop-filter-support {
+  @supports not (
+    (backdrop-filter: blur(0px)) or (-webkit-backdrop-filter: blur(0px))
+  ) {
+    @mixin-content;
+  }
+}

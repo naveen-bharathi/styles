@@ -1,0 +1,13 @@
+@import '../constants.css';
+
+@define-mixin LTR {
+  html[dir='$DIRECTION_LTR'] & {
+    @mixin-content;
+  }
+}
+
+@define-mixin RTL {
+  html[dir='$DIRECTION_RTL'] & {
+    @mixin-content;
+  }
+}

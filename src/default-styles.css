@@ -1,0 +1,36 @@
+@import './styles-reset.css';
+@import './dependencies.css';
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  @mixin apply-property-responsively --PADDING, $PADDING_WATCH, $PADDING_PHONE,
+    $PADDING_LARGEPHONE, $PADDING_TABLET, $PADDING_LAPTOP, $PADDING_DESKTOP,
+    false;
+}
+
+body {
+  box-sizing: border-box;
+}
+
+html,
+body,
+main {
+  width: 100%;
+}
+
+:not(textarea)::placeholder {
+  white-space: nowrap !important;
+  word-break: keep-all !important;
+}
+
+/* Fix for issue: Safari 15+ displays a gray border while loading. */
+@supports (font: -apple-system-body) and (-webkit-appearance: none) {
+  img[loading='lazy'] {
+    clip-path: inset(0.6px);
+  }
+}

@@ -1,0 +1,19 @@
+@define-mixin line-height $LINE_HEIGHT: normal, $IS_IMPORTANT {
+  line-height: conditionalValue(
+    isEqual($LINE_HEIGHT, none),
+    setImportance(1, $IS_IMPORTANT),
+    conditionalValue(
+      isEqual($LINE_HEIGHT, tight),
+      setImportance(1.25, $IS_IMPORTANT),
+      conditionalValue(
+        isEqual($LINE_HEIGHT, normal),
+        setImportance(1.5, $IS_IMPORTANT),
+        conditionalValue(
+          isEqual($LINE_HEIGHT, relaxed),
+          setImportance(1.625, $IS_IMPORTANT),
+          $LINE_HEIGHT
+        )
+      )
+    )
+  );
+}

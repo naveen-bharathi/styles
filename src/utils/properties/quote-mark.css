@@ -1,0 +1,47 @@
+@import '../direction.css';
+
+@define-mixin quote-mark-properties $IS_IMPORTANT {
+  &::before {
+    content: setImportance(open-quote, $IS_IMPORTANT);
+    display: setImportance(inline-block, $IS_IMPORTANT);
+    text-align: setImportance(end, $IS_IMPORTANT);
+  }
+
+  &::after {
+    content: setImportance(close-quote, $IS_IMPORTANT);
+    display: setImportance(inline-block, $IS_IMPORTANT);
+    text-align: setImportance(start, $IS_IMPORTANT);
+  }
+}
+
+@define-mixin quote-mark $IS_IMPORTANT {
+  @mixin quote-mark-properties;
+
+  &::before {
+    width: setImportance(1em, $IS_IMPORTANT);
+
+    @mixin RTL {
+      margin-right: setImportance(-1em, $IS_IMPORTANT);
+    }
+
+    @mixin LTR {
+      margin-left: setImportance(-1em, $IS_IMPORTANT);
+    }
+  }
+
+  &::after {
+    width: setImportance(1em, $IS_IMPORTANT);
+
+    @mixin RTL {
+      margin-left: setImportance(-1em, $IS_IMPORTANT);
+    }
+
+    @mixin LTR {
+      margin-right: setImportance(-1em, $IS_IMPORTANT);
+    }
+  }
+}
+
+@define-mixin quote-mark-inset $IS_IMPORTANT {
+  @mixin quote-mark-properties $IS_IMPORTANT;
+}

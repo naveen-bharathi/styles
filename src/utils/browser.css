@@ -1,0 +1,5 @@
+@define-mixin is-safari-browser {
+  @media screen and (min-color-index: 0) and (-webkit-min-device-pixel-ratio: 0) {
+    @mixin-content;
+  }
+}
