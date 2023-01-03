@@ -1,5 +1,5 @@
-import { defineConfig } from 'tsup';
-import glob from 'glob';
+import { defineConfig } from 'tsup'
+import glob from 'glob'
 
 export const tsup = defineConfig({
   dts: true,
@@ -31,4 +31,4 @@ export const tsup = defineConfig({
   outDir: '.',
   platform: 'node',
   sourcemap: false,
-});
+})

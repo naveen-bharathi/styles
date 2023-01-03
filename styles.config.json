@@ -32,60 +32,6 @@
       1367
     ]
   },
-  "imgDeviceSizes": {
-    "small": [
-      null,
-      479
-    ],
-    "medium": [
-      480,
-      895
-    ],
-    "large": [
-      896
-    ]
-  },
-  "imgImageSizes": {
-    "small": [
-      479,
-      958
-    ],
-    "medium": [
-      895,
-      1790
-    ],
-    "large": [
-      1280,
-      1920
-    ]
-  },
-  "heroImgDeviceSizes": {
-    "small": [
-      null,
-      734
-    ],
-    "medium": [
-      735,
-      1067
-    ],
-    "large": [
-      1068
-    ]
-  },
-  "heroImgImageSizes": {
-    "small": [
-      734,
-      1468
-    ],
-    "medium": [
-      1068,
-      2136
-    ],
-    "large": [
-      1920,
-      2880
-    ]
-  },
   "sizeOrder": [
     "WATCH",
     "PHONE",
